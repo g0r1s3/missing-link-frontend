@@ -7,13 +7,13 @@
 }
 
 .retro-counter__button {
-    --bg: #1b1b1b;
-    --bg2: #2a2a2a;
-    --fg: #e6ffe6;
-    --accent: #2eff7b;
-    --accent-dark: #12b853;
-    --border: #00ff85;
-    --shadow: #0a0a0a;
+    --bg: var(--color-bg, #1b1b1b);
+    --bg2: color-mix(in oklab, var(--bg), white 6%); /* subtle lift */
+    --fg: var(--color-text, #e6ffe6);
+    --accent: var(--color-accent, #2eff7b);
+    --accent-dark: var(--color-accent-dark, #12b853);
+    --border: var(--color-border, #00ff85);
+    --shadow: var(--shadow, #0a0a0a);
 
     display: inline-flex;
     align-items: center;

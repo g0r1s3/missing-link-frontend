@@ -1,10 +1,8 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+// src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import './styles/theme.css' // global variables
+import './index.css'        // your existing global styles
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)

@@ -1,0 +1,60 @@
+/* src/components/Button/Button.css */
+.btn {
+    /* map to theme tokens with safe fallbacks */
+    --btn-bg: var(--color-accent, #33A1E0);
+    --btn-bg-hover: var(--color-accent-dark, #1C6EA4);
+    --btn-fg: var(--color-text, #FFF9AF);
+    --btn-border: var(--color-border, #33A1E0);
+    --btn-bg-ghost: transparent;
+    --btn-fg-ghost: var(--color-accent, #33A1E0);
+    --btn-border-ghost: var(--color-accent, #33A1E0);
+    --btn-bg-ghost-hover: color-mix(in oklab, var(--color-accent) 12%, transparent);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding: 0.6rem 1rem; /* mid-sized */
+    border-radius: 9999px; /* smooth & rounded (pill) */
+    border: 1px solid var(--btn-border);
+
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+
+    /* no transitions/animations per request */
+}
+
+.btn:hover {
+    background: var(--btn-bg-hover);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-accent-dark, #1C6EA4);
+    outline-offset: 2px;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Variants */
+.btn--primary {
+    /* uses defaults from .btn */
+}
+
+.btn--ghost {
+    background: var(--btn-bg-ghost);
+    color: var(--btn-fg-ghost);
+    border-color: var(--btn-border-ghost);
+}
+
+.btn--ghost:hover {
+    background: var(--btn-bg-ghost-hover);
+}

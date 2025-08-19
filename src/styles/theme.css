@@ -1,0 +1,38 @@
+/* src/styles/theme.css */
+:root {
+  /* Palette (dark-first theme) */
+  --color-bg: #154D71;          /* deep slate-blue */
+  --color-text: #FFF9AF;        /* warm pale yellow for contrast */
+  --color-accent: #33A1E0;      /* bright cyan-blue */
+  --color-accent-dark: #1C6EA4; /* medium azure for active/pressed */
+  --color-border: #33A1E0;      /* border aligns with accent */
+  --shadow: #0a1f2b;            /* darkened bg for shadows */
+
+  /* spacing, radii, etc. */
+  --radius-sm: 6px;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+}
+
+/* Optional: light theme using the same palette */
+:root[data-theme="light"] {
+  --color-bg: #FFF9AF;          /* light surface */
+  --color-text: #154D71;        /* dark text */
+  --color-accent: #1C6EA4;      /* accent tuned for light bg */
+  --color-accent-dark: #154D71; /* deeper accent for pressed/focus */
+  --color-border: #33A1E0;      /* crisp blue border */
+  --shadow: #9cc9e3;            /* soft cool shadow on light bg */
+}
+
+/* Optional: auto-follow system preference when no explicit data-theme is set */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg: #FFF9AF;
+    --color-text: #154D71;
+    --color-accent: #1C6EA4;
+    --color-accent-dark: #154D71;
+    --color-border: #33A1E0;
+    --shadow: #9cc9e3;
+  }
+}
