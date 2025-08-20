@@ -2,3 +2,6 @@
 // src/components/Counter/index.ts
 export * from './Counter'
 export * from './Button'
+export * from './TextFlied'
+export * from './PasswordField'
+export * from './Tickbox'

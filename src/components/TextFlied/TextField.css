@@ -1,0 +1,60 @@
+/* src/components/TextField/TextField.css */
+.tf-root {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+/* Mid-sized field by default */
+.tf-input {
+    width: 20rem; /* ~320px */
+    max-width: 100%;
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-text);
+    background: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.tf-input::placeholder {
+    color: color-mix(in oklab, var(--color-text) 55%, transparent);
+    opacity: 0.85;
+}
+
+.tf-input:hover {
+    border-color: var(--color-accent);
+    background: color-mix(in oklab, var(--color-bg) 90%, black 10%);
+}
+
+.tf-input:focus {
+    border-color: var(--color-accent);
+    box-shadow:
+            0 0 0 3px color-mix(in oklab, var(--color-accent) 30%, transparent),
+            0 2px 10px 0 color-mix(in oklab, var(--shadow) 40%, transparent);
+    background: color-mix(in oklab, var(--color-bg) 85%, black 15%);
+}
+
+.tf-label {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.tf-helper {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.tf-input--error {
+    border-color: #ff8a80;
+    box-shadow:
+            0 0 0 2px color-mix(in oklab, #ff8a80 35%, transparent);
+}
+
+.tf-helper--error {
+    color: #ffb4a9;
+}

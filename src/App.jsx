@@ -2,12 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-// ... existing code ...
-import { Counter, Button } from './components'
-
+import { Counter, Button, TextField, PasswordField, Tickbox } from './components'
 // ... existing code ...
 function App() {
     const [count, setCount] = useState(0)
+    const [name, setName] = useState('')
+    const [password, setPassword] = useState('')
+    const [agree, setAgree] = useState(false)
+
 
     return (
         <>
@@ -39,6 +41,38 @@ function App() {
                             <Button disabled>Disabled</Button>
                         </div>
                     </div>
+
+                    <div>
+                        <h2 style={{ margin: '1rem 0 0.25rem', fontSize: '1.1rem' }}>Text Field</h2>
+                        <div style={{ display: 'grid', gap: '0.5rem' }}>
+                            <TextField
+                                label="Your name"
+                                placeholder="Type here…"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                spellCheck={false}
+                                autoComplete="off"
+                            />
+                            <span style={{ opacity: 0.8 }}>Echo: {name || '—'}</span>
+                        </div>
+                    </div>
+                    <div>
+                    <PasswordField
+                        label="Password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    </div>
+                    <div>
+                        <Tickbox
+                            label="I agree to the terms"
+                            description="You can revoke your consent at any time in settings."
+                            checked={agree}
+                            onChange={(e) => setAgree(e.target.checked)}
+                        />
+
+                    </div>
                 </section>
                 {/* ... existing code ... */}
                 <p>
@@ -51,5 +85,6 @@ function App() {
         </>
     )
 }
+// ... existing code ...
 
 export default App

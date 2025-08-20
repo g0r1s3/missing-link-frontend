@@ -1,0 +1,84 @@
+/* src/components/Tickbox/Tickbox.css */
+.tb-root {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    color: var(--color-text);
+    user-select: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.tb--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Visually styled checkbox */
+.tb-input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    background: transparent;
+    display: grid;
+    place-content: center;
+    outline: none;
+    transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.tb-input:hover:not(:disabled) {
+    border-color: var(--color-accent);
+    background: color-mix(in oklab, var(--color-bg) 90%, black 10%);
+}
+
+.tb-input:focus-visible {
+    border-color: var(--color-accent);
+    box-shadow:
+            0 0 0 3px color-mix(in oklab, var(--color-accent) 30%, transparent),
+            0 2px 8px 0 color-mix(in oklab, var(--shadow) 35%, transparent);
+}
+
+/* Check indicator */
+.tb-input::before {
+    content: '';
+    width: 0.6rem;
+    height: 0.6rem;
+    transform: scale(0);
+    transition: transform 120ms ease;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.tb-input:checked::before {
+    transform: scale(1);
+}
+
+.tb-input:disabled {
+    opacity: 0.7;
+}
+
+/* Decorative box overlay to enhance contrast on dark/light themes */
+.tb-box {
+    position: absolute; /* taken out of flow but we still keep spacing with input size */
+    width: 0; height: 0; /* no extra space */
+}
+
+.tb-text {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.tb-label {
+    line-height: 1.1;
+}
+
+.tb-desc {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    line-height: 1.1;
+}
