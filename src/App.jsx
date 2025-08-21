@@ -3,13 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Counter, Button, TextField, PasswordField, Tickbox } from './components'
+import { Routes, Route, Link } from 'react-router-dom'
+import { LoginPage, RegisterPage } from './pages'
+
 // ... existing code ...
-function App() {
+function Home() {
     const [count, setCount] = useState(0)
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [agree, setAgree] = useState(false)
-
 
     return (
         <>
@@ -57,12 +59,12 @@ function App() {
                         </div>
                     </div>
                     <div>
-                    <PasswordField
-                        label="Password"
-                        placeholder="Enter your password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                        <PasswordField
+                            label="Password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
                     <div>
                         <Tickbox
@@ -86,5 +88,30 @@ function App() {
     )
 }
 // ... existing code ...
+function App() {
+    return (
+        <>
+            <header style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+                <nav style={{ display: 'flex', gap: '0.75rem' }}>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                        <Button variant="ghost">Home</Button>
+                    </Link>
+                    <Link to="/login" style={{ textDecoration: 'none' }}>
+                        <Button>Login</Button>
+                    </Link>
+                    <Link to="/register" style={{ textDecoration: 'none' }}>
+                        <Button variant="ghost">Register</Button>
+                    </Link>
+                </nav>
+            </header>
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+        </>
+    )
+}
 
 export default App
