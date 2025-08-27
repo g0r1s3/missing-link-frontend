@@ -1,16 +1,17 @@
 /* src/components/TextField/TextField.css */
 .tf-root {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     gap: var(--space-2);
     color: var(--color-text);
     font-size: 0.95rem;
+    width: 100%;
 }
 
-/* Mid-sized field by default */
 .tf-input {
-    width: 20rem; /* ~320px */
+    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
     padding: var(--space-3) var(--space-4);
     color: var(--color-text);
     background: transparent;

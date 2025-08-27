@@ -2,6 +2,7 @@
 import Footer from '../components/Footer/Footer'
 import { Link } from 'react-router-dom'
 import LPFeature from '../components/LPFeature'
+import LPFAQuestion from '../components/LPFAQuestion'
 import './LandingPage.css'
 
 export default function LandingPage() {
@@ -86,6 +87,28 @@ export default function LandingPage() {
                         />
                     </div>
                 </section>
+                <section style={{ maxWidth: 900, margin: '3rem auto', padding: '0 1rem' }}>
+                    <h2 style={{ marginBottom: '1rem' }}>Häufige Fragen</h2>
+                    <LPFAQuestion
+                        question="Brauche ich ein Konto?"
+                        answer="Nein, für die Demo nicht. Für die volle Nutzung später schon."
+                        defaultOpen
+                    />
+                    <LPFAQuestion
+                        question="Kann ich jederzeit kündigen?"
+                        answer={<p>Ja, monatlich zum Ende der Laufzeit. Keine Mindestdauer.</p>}
+                    />
+                    <LPFAQuestion
+                        question="Gibt es einen Teamrabatt?"
+                        answer={
+                            <ul>
+                                <li>Ab 5 Nutzer: 10%</li>
+                                <li>Ab 20 Nutzer: 20%</li>
+                            </ul>
+                        }
+                    />
+                </section>
+
             </main>
             <Footer />
         </div>

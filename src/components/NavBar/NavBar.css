@@ -4,14 +4,19 @@
     color: var(--color-text, #ffffff);
     border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.15));
     box-shadow: 0 1px 8px rgba(0,0,0,0.08);
-    position: fixed;
+    position: sticky; /* war: fixed */
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
 }
 
+/* auf /login volle Breite für den inneren Container */
+.ml-navbar--fluid .ml-nav__inner {
+    max-width: none;
+}
 
+/* ... existing code ... */
 .ml-nav__inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -21,6 +26,8 @@
     align-items: center;
     gap: var(--space-4, 1rem);
 }
+
+/* ... existing code ... */
 
 
 .ml-nav__brand a {
@@ -72,6 +79,7 @@
 
 .ml-nav__user {
   justify-self: end;
+  position: relative; /* für Dropdown-Positionierung */
 }
 
 .ml-userbtn {
@@ -95,4 +103,33 @@
 .ml-userbtn:hover {
   background: rgba(255,255,255,0.08);
   border-color: var(--color-accent, #33A1E0);
+}
+
+/* Dropdown */
+.ml-user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  padding: 0.25rem;
+  z-index: 1100;
+}
+
+.ml-user-menu__item {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+}
+
+.ml-user-menu__item:hover,
+.ml-user-menu__item:focus {
+  background: rgba(15, 23, 42, 0.06);
+  outline: none;
 }

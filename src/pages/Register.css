@@ -1,0 +1,77 @@
+/* src/pages/Register.css */
+
+/* Full-width root to match the login layout */
+#root {
+    max-width: none;
+    width: 100%;
+}
+
+/* Page wrapper */
+.ml-auth-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--app-bg, transparent);
+    color: var(--app-text, inherit);
+}
+
+/* Main centers the card */
+.ml-auth-main {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: var(--space-5, 2rem) var(--space-4, 1rem);
+    width: 100%;
+}
+
+/* Auth card (uses theme surface colors) */
+.ml-auth-card {
+    width: min(420px, 92vw);
+    background: var(--surface-bg, #ffffff);
+    color: var(--surface-text, #0f172a);
+    border: 1px solid var(--surface-border, rgba(15, 23, 42, 0.12));
+    border-radius: var(--radius-md, 12px);
+    box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,0.08));
+    padding: var(--space-4, 1.25rem);
+}
+
+/* Title */
+.ml-auth-title {
+    margin: 0 0 var(--space-3, 1rem) 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--surface-text, inherit);
+}
+
+/* Form layout */
+.ml-auth-form {
+    display: grid;
+    gap: var(--space-3, 0.75rem);
+}
+
+/* Alt link row */
+.ml-auth-alt {
+    margin-top: var(--space-3, 0.75rem);
+    text-align: center;
+    color: var(--color-muted, #445);
+}
+
+.ml-auth-alt a {
+    color: var(--color-accent, #154D71);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ml-auth-alt a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: respect dark theme variables if provided */
+@media (prefers-color-scheme: dark) {
+    .ml-auth-card {
+        background: var(--surface-bg-dark, #0b2230);
+        color: var(--surface-text-dark, #e7eef3);
+        border-color: var(--surface-border-dark, rgba(231, 238, 243, 0.12));
+    }
+}

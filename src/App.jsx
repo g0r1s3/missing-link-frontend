@@ -2,6 +2,8 @@ import React from 'react'
 import NavBar from './components/NavBar/NavBar'
 import { Routes, Route } from 'react-router-dom'
 import { LandingPage } from './pages'
+import { LoginPage } from './pages' // war: { Login }
+import { RegisterPage } from './pages' // neu: Register-Route hinzufügen
 
 // ... existing code ...
 function App() {
@@ -10,6 +12,8 @@ function App() {
             <NavBar />
             <Routes>
                 <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<LoginPage />} /> {/* war: <Login /> */}
+                <Route path="/register" element={<RegisterPage />} /> {/* neue Register-Route */}
                 <Route
                     path="/demo"
                     element={
