@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import { LandingPage } from './pages'
 import { LoginPage } from './pages' // war: { Login }
 import { RegisterPage } from './pages' // neu: Register-Route hinzufügen
+import './App.css'
+
 
 // ... existing code ...
 function App() {

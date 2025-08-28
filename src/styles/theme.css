@@ -1,7 +1,7 @@
 /* src/styles/theme.css */
 :root {
   /* Palette (dark-first theme) */
-  --color-bg: #154D71;          /* deep slate-blue */
+  --color-bg: #0a1f2b;          /* deep slate-blue */
   --color-text: #FFF9AF;        /* warm pale yellow for contrast */
   --color-accent: #33A1E0;      /* bright cyan-blue */
   --color-accent-dark: #1C6EA4; /* medium azure for active/pressed */

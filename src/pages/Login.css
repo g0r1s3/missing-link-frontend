@@ -12,6 +12,8 @@
     flex-direction: column;
     /* prevent horizontal overflow on the login page */
     overflow-x: clip;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 /* ensure padding/borders don't cause overflow */
 .ml-auth-page, .ml-auth-page * {
