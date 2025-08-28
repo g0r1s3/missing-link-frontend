@@ -1,6 +1,6 @@
 // @ts-ignore
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './NavBar.css'
 
 // ... existing code ...
@@ -8,8 +8,6 @@ export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const btnRef = useRef<HTMLButtonElement | null>(null)
     const menuRef = useRef<HTMLDivElement | null>(null)
-    const location = useLocation()
-    const fluid = location.pathname === '/login'
 
     useEffect(() => {
         function onDocClick(e: MouseEvent) {
@@ -36,7 +34,7 @@ export default function NavBar() {
     }, [menuOpen])
 
     return (
-        <header className={`ml-navbar ${fluid ? 'ml-navbar--fluid' : ''}`}>
+        <header className="ml-navbar">
             <div className="ml-nav__inner">
                 <div className="ml-nav__brand">
                     <Link to="/" aria-label="Missing-Link Home">missing-link</Link>
