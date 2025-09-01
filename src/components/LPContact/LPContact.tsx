@@ -2,7 +2,7 @@
 // @ts-ignore
 import React, { useState } from 'react'
 import './LPContact.css'
-import { TextField, Button } from '../' // aus dem Komponenten-Index
+import { TextField, Button, TextArea } from '../' // aus dem Komponenten-Index
 
 const LPContact: React.FC = () => {
     const [name, setName] = useState('')
@@ -51,12 +51,9 @@ const LPContact: React.FC = () => {
                             </div>
 
                             <div className="ml-contact__row">
-                                <label htmlFor="contact-message" className="ml-contact__label">
-                                    Nachricht
-                                </label>
-                                <textarea
+                                <TextArea
                                     id="contact-message"
-                                    className="ml-contact__textarea"
+                                    label="Nachricht"
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     rows={6}

@@ -5,7 +5,8 @@
   --color-text: #FFF9AF;        /* warm pale yellow for contrast */
   --color-accent: #33A1E0;      /* bright cyan-blue */
   --color-accent-dark: #1C6EA4; /* medium azure for active/pressed */
-  --color-border: #33A1E0;      /* border aligns with accent */
+  --color-border: #33A1E0;
+    --color-error: #d33;/* border aligns with accent */
   --shadow: #0a1f2b;            /* darkened bg for shadows */
 
   /* spacing, radii, etc. */
