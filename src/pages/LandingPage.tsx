@@ -1,12 +1,14 @@
-// import React from 'react'
 import Footer from '../components/Footer/Footer'
 import { Link } from 'react-router-dom'
 import LPFeature from '../components/LPFeature'
 import LPFAQuestion from '../components/LPFAQuestion'
+import LPContact from '../components/LPContact'
 import './LandingPage.css'
 
 export default function LandingPage() {
     return (
+    <>
+      {/* ... andere Landingpage-Sektionen ... */}
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100vw', alignSelf: 'stretch' }}>
             <main className="ml-main" style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem 1rem 2rem', flex: 1 }}>
                 <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -87,6 +89,7 @@ export default function LandingPage() {
                         />
                     </div>
                 </section>
+                {/* FAQ-Sektion */}
                 <section style={{ maxWidth: 900, margin: '3rem auto', padding: '0 1rem' }}>
                     <h2 style={{ marginBottom: '1rem' }}>Häufige Fragen</h2>
                     <LPFAQuestion
@@ -108,9 +111,12 @@ export default function LandingPage() {
                         }
                     />
                 </section>
+                {/* Kontakt direkt unter FAQ */}
+                <LPContact />
 
             </main>
-            <Footer />
         </div>
+        <Footer />
+    </>
     )
 }

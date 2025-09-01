@@ -28,6 +28,16 @@ body {
     width: 100%;
 }
 
+.ml-app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ml-app__main {
+  flex: 1;
+}
+
 /* Medienelemente responsiv */
 img,
 svg,
