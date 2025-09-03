@@ -9,15 +9,45 @@ export default function RegisterPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [agree, setAgree] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState<string | null>(null)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (!agree) {
             alert('Please accept the terms to continue.')
             return
         }
-        // TODO: call your registration API
-        console.log({ name, email, password, agree })
+        const trimmedEmail = email.trim()
+        if (!trimmedEmail) {
+            setError('Bitte E‑Mail angeben.')
+            return
+        }
+        if (password.length < 8) {
+            setError('Passwort muss mindestens 8 Zeichen lang sein.')
+            return
+        }
+        setError(null)
+        setLoading(true)
+        try {
+            const { registerApi } = await import('../features/auth/api')
+            // Nur die erwarteten Felder senden:
+            const res = await registerApi({ email: trimmedEmail, password })
+            if (res.token) {
+                localStorage.setItem('auth_token', res.token)
+                // Falls kein user im Response: E‑Mail speichern, Name wenn vorhanden
+                const user = res.user ?? { email: trimmedEmail, name: name?.trim() || undefined }
+                localStorage.setItem('auth_user', JSON.stringify(user))
+                window.dispatchEvent(new Event('ml-auth-changed'))
+                window.location.assign('/')
+            } else {
+                window.location.assign('/login')
+            }
+        } catch (err: any) {
+            setError(err?.message ?? 'Registrierung fehlgeschlagen')
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -25,6 +55,7 @@ export default function RegisterPage() {
             <main className="ml-auth-main">
                 <section className="ml-auth-card" aria-labelledby="register-title">
                     <h1 id="register-title" className="ml-auth-title">Create account</h1>
+                    {error && <div style={{ color: 'crimson', marginBottom: '0.5rem' }}>{error}</div>}
                     <form onSubmit={handleSubmit} className="ml-auth-form">
                         <TextField
                             label="Full name"
@@ -52,7 +83,7 @@ export default function RegisterPage() {
                             checked={agree}
                             onChange={(e) => setAgree(e.target.checked)}
                         />
-                        <Button type="submit">Create account</Button>
+                        <Button type="submit" disabled={loading}>{loading ? 'Creating…' : 'Create account'}</Button>
                     </form>
                     <p className="ml-auth-alt">
                         Already have an account? <Link to="/login">Sign in</Link>

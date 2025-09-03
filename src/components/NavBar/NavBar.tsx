@@ -8,7 +8,48 @@ export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const btnRef = useRef<HTMLButtonElement | null>(null)
     const menuRef = useRef<HTMLDivElement | null>(null)
+    const [user, setUser] = useState<null | { name?: string; email?: string }>(null)
 
+    useEffect(() => {
+        function readUser() {
+            try {
+                const raw = localStorage.getItem('auth_user')
+                if (!raw) {
+                    setUser(null)
+                    return
+                }
+                const parsed = JSON.parse(raw)
+                setUser({ name: parsed?.name, email: parsed?.email })
+            } catch {
+                setUser(null)
+            }
+        }
+        readUser()
+        const onStorage = (e: StorageEvent) => {
+            if (e.key === 'auth_user' || e.key === 'auth_token') {
+                readUser()
+            }
+        }
+        const onAuthChanged = () => readUser()
+        window.addEventListener('storage', onStorage)
+        window.addEventListener('ml-auth-changed', onAuthChanged as EventListener)
+        return () => {
+            window.removeEventListener('storage', onStorage)
+            window.removeEventListener('ml-auth-changed', onAuthChanged as EventListener)
+        }
+    }, [])
+
+    function handleLogout() {
+        localStorage.removeItem('auth_token')
+        localStorage.removeItem('auth_user')
+        setUser(null)
+        setMenuOpen(false)
+        window.dispatchEvent(new Event('ml-auth-changed'))
+        window.location.assign('/login')
+    }
+
+    const displayName = user?.name?.trim() || user?.email || null
+    // ... existing code ...
     useEffect(() => {
         function onDocClick(e: MouseEvent) {
             if (!menuOpen) return
@@ -71,14 +112,25 @@ export default function NavBar() {
                             role="menu"
                             aria-label="User menu"
                         >
-                            <Link
-                                to="/login"
-                                className="ml-user-menu__item"
-                                role="menuitem"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                Login
-                            </Link>
+                            {displayName ? (
+                                <>
+                                    <div className="ml-user-menu__item" role="menuitem" aria-disabled="true">
+                                        {displayName}
+                                    </div>
+                                    <button className="ml-user-menu__item" role="menuitem" onClick={handleLogout}>
+                                        Logout
+                                    </button>
+                                </>
+                            ) : (
+                                <Link
+                                    to="/login"
+                                    className="ml-user-menu__item"
+                                    role="menuitem"
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    Login
+                                </Link>
+                            )}
                         </div>
                     )}
                 </div>
