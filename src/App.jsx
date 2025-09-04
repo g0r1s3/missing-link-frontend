@@ -5,7 +5,8 @@ import { LandingPage } from './pages'
 import { LoginPage } from './pages' // war: { Login }
 import { RegisterPage } from './pages' // neu: Register-Route hinzufügen
 import './App.css'
-
+// ... existing code ...
+import { ProfilePage } from './pages'
 
 // ... existing code ...
 function App() {
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<LoginPage />} /> {/* war: <Login /> */}
                     <Route path="/register" element={<RegisterPage />} /> {/* neue Register-Route */}
+                    <Route path="/profile" element={<ProfilePage />} />
                     <Route
                         path="/demo"
                         element={

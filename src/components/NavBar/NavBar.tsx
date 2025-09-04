@@ -2,6 +2,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
+// ... existing code ...
+import Button from '../Button/Button'
 
 // ... existing code ...
 export default function NavBar() {
@@ -114,22 +116,38 @@ export default function NavBar() {
                         >
                             {displayName ? (
                                 <>
-                                    <div className="ml-user-menu__item" role="menuitem" aria-disabled="true">
+                                    <div className="ml-user-menu__header" aria-hidden="true">
                                         {displayName}
                                     </div>
-                                    <button className="ml-user-menu__item" role="menuitem" onClick={handleLogout}>
-                                        Logout
-                                    </button>
+                                    <div className="ml-user-menu__actions">
+                                        <Link
+                                            to="/profile"
+                                            className="ml-user-menu__linkbtn"
+                                            role="menuitem"
+                                            onClick={() => setMenuOpen(false)}
+                                        >
+                                            <Button variant="ghost" className="ml-user-menu__btn">
+                                                Profil
+                                            </Button>
+                                        </Link>
+                                        <Button
+                                            variant="ghost"
+                                            className="ml-user-menu__btn"
+                                            role="menuitem"
+                                            onClick={handleLogout}
+                                        >
+                                            Logout
+                                        </Button>
+                                    </div>
                                 </>
                             ) : (
-                                <Link
-                                    to="/login"
-                                    className="ml-user-menu__item"
-                                    role="menuitem"
-                                    onClick={() => setMenuOpen(false)}
-                                >
-                                    Login
-                                </Link>
+                                <div className="ml-user-menu__actions">
+                                    <Link to="/login" onClick={() => setMenuOpen(false)} role="menuitem" className="ml-user-menu__linkbtn">
+                                        <Button variant="ghost" className="ml-user-menu__btn">
+                                            Login
+                                        </Button>
+                                    </Link>
+                                </div>
                             )}
                         </div>
                     )}

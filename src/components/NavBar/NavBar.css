@@ -110,16 +110,47 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 160px;
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 10px;
+  min-width: 180px;
+  background: var(--panel-bg, #ffffff);
+  color: var(--panel-text, #0f172a);
+  border: 1px solid var(--color-border, rgba(15, 23, 42, 0.12));
+  border-radius: 12px;
   box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-  padding: 0.25rem;
+  padding: 0.5rem;
   z-index: 1100;
 }
 
+/* Kopf/Label oben (nicht klickbar) */
+.ml-user-menu__header {
+  padding: 0.25rem 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted, #445);
+  border-bottom: 1px solid var(--color-border, rgba(15, 23, 42, 0.12));
+  margin-bottom: 0.5rem;
+}
+
+.ml-user-menu__actions {
+  display: grid;
+  gap: 0.375rem;
+}
+
+/* Buttons im Menü übernehmen Site-Style und füllen die Breite */
+.ml-user-menu .ml-user-menu__btn.btn {
+  width: 100%;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.1;
+}
+
+/* Falls ein Link um den Button liegt, Link resetten */
+.ml-user-menu__linkbtn {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Legacy Styles – bleiben für Kompatibilität, aber werden nicht mehr für Actions genutzt */
 .ml-user-menu__item {
   display: block;
   padding: 0.5rem 0.75rem;
@@ -132,4 +163,17 @@
 .ml-user-menu__item:focus {
   background: rgba(15, 23, 42, 0.06);
   outline: none;
+}
+
+/* Optional: Dark-Theme Tuning */
+@media (prefers-color-scheme: dark) {
+  .ml-user-menu {
+    background: var(--panel-bg, #0b2230);
+    color: var(--panel-text, #e7eef3);
+    border-color: rgba(231, 238, 243, 0.12);
+  }
+  .ml-user-menu__header {
+    color: #b7c2cc;
+    border-color: rgba(231, 238, 243, 0.12);
+  }
 }
