@@ -9,6 +9,8 @@ import './App.css'
 import { ProfilePage } from './pages'
 // ... existing code ...
 import { BikeDetailPage, BikeFormPage } from './pages'
+// ... existing code ...
+import { MaintenanceDetailPage } from './pages'
 
 // Simple Auth-Guard basierend auf vorhandenen Token in localStorage
 function RequireAuth({ children }) {
@@ -47,6 +49,14 @@ function App() {
                         element={
                             <RequireAuth>
                                 <BikeDetailPage />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route
+                        path="/maintenances/:id"
+                        element={
+                            <RequireAuth>
+                                <MaintenanceDetailPage />
                             </RequireAuth>
                         }
                     />
