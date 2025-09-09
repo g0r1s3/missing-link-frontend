@@ -1,14 +1,22 @@
 import React from 'react'
 import NavBar from './components/NavBar/NavBar'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { LandingPage } from './pages'
 import { LoginPage } from './pages' // war: { Login }
 import { RegisterPage } from './pages' // neu: Register-Route hinzufügen
 import './App.css'
 // ... existing code ...
 import { ProfilePage } from './pages'
-
 // ... existing code ...
+import { BikeDetailPage, BikeFormPage } from './pages'
+
+// Simple Auth-Guard basierend auf vorhandenen Token in localStorage
+function RequireAuth({ children }) {
+    const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : null
+    if (!token) return <Navigate to="/login" replace />
+    return children
+}
+
 function App() {
     return (
         <div className="ml-app">
@@ -18,7 +26,30 @@ function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<LoginPage />} /> {/* war: <Login /> */}
                     <Route path="/register" element={<RegisterPage />} /> {/* neue Register-Route */}
-                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route
+                        path="/profile"
+                        element={
+                            <RequireAuth>
+                                <ProfilePage />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route
+                        path="/bikes/new"
+                        element={
+                            <RequireAuth>
+                                <BikeFormPage />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route
+                        path="/bikes/:id"
+                        element={
+                            <RequireAuth>
+                                <BikeDetailPage />
+                            </RequireAuth>
+                        }
+                    />
                     <Route
                         path="/demo"
                         element={

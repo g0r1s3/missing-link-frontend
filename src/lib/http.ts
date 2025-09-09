@@ -15,11 +15,14 @@ export async function fetchJson<T>(
 ): Promise<T> {
     const { method = 'GET', body, token = localStorage.getItem('auth_token'), headers = {} } = options;
 
+    // Token normalisieren: falls "Bearer ..." gespeichert wurde, entfernen
+    const normalizedToken = token ? token.replace(/^Bearer\s+/i, '') : null;
+
     const res = await fetch(`${API_BASE_URL}${path}`, {
         method,
         headers: {
             'Content-Type': 'application/json',
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+            ...(normalizedToken ? { Authorization: `Bearer ${normalizedToken}` } : {}),
             ...headers,
         },
         body: body !== undefined ? JSON.stringify(body) : undefined,
@@ -31,7 +34,29 @@ export async function fetchJson<T>(
     const data = isJson ? await res.json().catch(() => ({})) : (null as unknown as T);
 
     if (!res.ok) {
-        const message = isJson && (data as any)?.message ? (data as any).message : `Request failed (${res.status})`;
+        // Versuche, aussagekräftige Fehlermeldung aus dem Body zu holen
+        let detailed = ''
+        if (isJson && data && typeof data === 'object') {
+            const d: any = data
+            const candidate = d.message ?? d.detail ?? d.error ?? d.errors
+            if (typeof candidate === 'string') {
+                detailed = candidate
+            } else if (candidate && typeof candidate === 'object') {
+                try {
+                    detailed = JSON.stringify(candidate)
+                } catch {
+                    // ignore
+                }
+            } else {
+                try {
+                    detailed = JSON.stringify(d)
+                } catch {
+                    // ignore
+                }
+            }
+        }
+        const fallback = `Request failed (${res.status})`
+        const message = detailed ? `${fallback}: ${detailed}` : fallback
         throw new Error(message);
     }
 

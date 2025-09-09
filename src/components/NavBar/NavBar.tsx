@@ -2,10 +2,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
-// ... existing code ...
 import Button from '../Button/Button'
 
-// ... existing code ...
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const btnRef = useRef<HTMLButtonElement | null>(null)
@@ -27,14 +25,17 @@ export default function NavBar() {
             }
         }
         readUser()
+
         const onStorage = (e: StorageEvent) => {
             if (e.key === 'auth_user' || e.key === 'auth_token') {
                 readUser()
             }
         }
         const onAuthChanged = () => readUser()
+
         window.addEventListener('storage', onStorage)
         window.addEventListener('ml-auth-changed', onAuthChanged as EventListener)
+
         return () => {
             window.removeEventListener('storage', onStorage)
             window.removeEventListener('ml-auth-changed', onAuthChanged as EventListener)
@@ -51,7 +52,7 @@ export default function NavBar() {
     }
 
     const displayName = user?.name?.trim() || user?.email || null
-    // ... existing code ...
+
     useEffect(() => {
         function onDocClick(e: MouseEvent) {
             if (!menuOpen) return
@@ -107,6 +108,7 @@ export default function NavBar() {
                             <path d="M21.5 22c0-4.142-4.253-7.5-9.5-7.5S2.5 17.858 2.5 22" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                         </svg>
                     </button>
+
                     {menuOpen && (
                         <div
                             ref={menuRef}

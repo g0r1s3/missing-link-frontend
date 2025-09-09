@@ -1,45 +1,64 @@
 import { useState } from 'react'
 import { TextField, PasswordField, Button, Tickbox } from '../components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer/Footer'
 import './Login.css'
 
-// ... existing code ...
-export default function LoginPage() {
+const Login: React.FC = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [remember, setRemember] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
-    // ... existing code ...
-    const handleSubmit = async (e) => {
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const trimmedEmail = (email || '').trim() // <-- hier definieren
-        if (!trimmedEmail) {
-            setError('Bitte E‑Mail angeben.')
-            return
-        }
-        if ((password || '').length < 8) {
-            setError('Passwort muss mindestens 8 Zeichen lang sein.')
-            return
-        }
         setError(null)
         setLoading(true)
+
         try {
-            const { loginApi } = await import('../features/auth/api')
-            const res = await loginApi({ email: trimmedEmail, password })
-            localStorage.setItem('auth_token', res.token)
-            const user = res.user ?? { email: trimmedEmail }
-            localStorage.setItem('auth_user', JSON.stringify(user))
+            const baseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
+            const res = await fetch(`${baseUrl}/api/v1/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password, remember })
+            })
+
+            const data = await res.json()
+
+            if (!res.ok) {
+                throw new Error(data?.message || 'Login failed')
+            }
+
+            const accessToken: string | undefined = data?.access_token
+            if (!accessToken) {
+                throw new Error('No token received')
+            }
+
+            // Token speichern
+            localStorage.setItem('auth_token', accessToken)
+
+            // Nutzerinfo speichern (vom Backend, sonst Fallback auf eingegebene Email)
+            const apiUser = data?.user && typeof data.user === 'object' ? data.user : null
+            const authUser = {
+                name: apiUser?.name ?? undefined,
+                email: apiUser?.email ?? email
+            }
+            localStorage.setItem('auth_user', JSON.stringify(authUser))
+
+            // Andere Tabs + gleiche Tab informieren (NavBar hört auf 'ml-auth-changed')
             window.dispatchEvent(new Event('ml-auth-changed'))
-            window.location.assign('/') // oder useNavigate('/')
-        } catch (err: any) {
-            setError(err?.message ?? 'Login fehlgeschlagen')
+
+            // Weiterleitung
+            navigate('/profile', { replace: true })
+        } catch (e: any) {
+            setError(e?.message || 'Login fehlgeschlagen')
         } finally {
             setLoading(false)
         }
     }
-    // ... existing code ...
+
     return (
         <div className="ml-auth-page">
             <main className="ml-auth-main">
@@ -77,3 +96,5 @@ export default function LoginPage() {
         </div>
     )
 }
+
+export default Login
