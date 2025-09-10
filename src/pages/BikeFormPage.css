@@ -1,0 +1,86 @@
+/* src/pages/BikeFormPage.css */
+
+@import '../styles/theme.css';
+
+/* Layout */
+.page-constrained {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: var(--color-accent-dark); /* Hintergrund aus theme.css */
+    border-radius: var(--radius-lg, 16px);
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.page-title {
+    margin: 0;
+    color: var(--panel-text, #0f172a);
+}
+
+.link-reset {
+    text-decoration: none;
+}
+
+/* Card / Form */
+.card {
+    background: var(--color-accent-dark, #ffffff);
+    color: var(--panel-text, #0f172a);
+    border: 1px solid var(--color-border, rgba(15, 23, 42, 0.12));
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.form-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.grid-2 {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 640px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Inputs (falls euer TextField className durchreicht) */
+.input,
+.textfield,
+.text-input {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, rgba(15, 23, 42, 0.18));
+    background: var(--panel-bg, #fff);
+    color: inherit;
+}
+
+.label,
+.textfield-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Feedback */
+.form-error {
+    color: var(--color-accent, #33A1E0);
+    margin: 0.5rem 0 0.75rem;
+}
+
+/* Actions */
+.button-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
