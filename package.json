@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "gen:manifest": "node scripts/gen-component-manifest.cjs",
+    "gen:manifest:all": "PUBLIC_ONLY=0 node scripts/gen-component-manifest.cjs",
+    "gen:manifest:dom": "INCLUDE_DOM=1 node scripts/gen-component-manifest.cjs",
+    "gen:manifest:md": "DOC_MD=1 node scripts/gen-component-manifest.cjs",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
