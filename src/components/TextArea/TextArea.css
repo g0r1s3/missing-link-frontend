@@ -2,25 +2,25 @@
 
 /* Wrapper auf volle Breite strecken – identisch zu TextField-Verhalten */
 .tf-root.tf-root--textarea {
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  color: var(--color-text);
   font-size: 0.95rem;
-  width: 100%;
+  gap: var(--space-2);
   min-width: 0; /* wichtig in Grid/Flex-Layouts */
+  width: 100%;
 }
 
 /* TextArea selbst: volle Breite und nur vertikal resizebar.
    Basis-Styles (Padding, Border, Hintergrund etc.) kommen von .tf-input aus der TextField-CSS.
    Damit sind Hover/Focus exakt identisch. */
 .tf-root.tf-root--textarea .tf-input {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
   box-sizing: border-box;
-  resize: vertical;   /* nur nach unten vergrößerbar */
+  max-width: 100%;
   min-height: 8rem;   /* angenehme Anfangshöhe */
+  min-width: 0;
+  resize: vertical;   /* nur nach unten vergrößerbar */
+  width: 100%;
 }
 
 /* Fehlerzustand nutzt die gleichen Utility-Klassen wie das TextField */

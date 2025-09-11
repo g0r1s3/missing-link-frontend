@@ -1,13 +1,13 @@
 .ml-navbar {
-    width: 100%;
     background: var(--color-bg, #154D71);
-    color: var(--color-text, #ffffff);
-    border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.15));
-    box-shadow: 0 1px 8px rgba(0,0,0,0.08);
-    position: sticky; /* war: fixed */
-    top: 0;
+    border-bottom: 1px solid var(--color-border, rgb(255 255 255 / 15%));
+    box-shadow: 0 1px 8px rgb(0 0 0 / 8%);
+    color: var(--color-text, #fff);
     left: 0;
+    position: sticky; /* war: fixed */
     right: 0;
+    top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
@@ -18,31 +18,32 @@
 
 /* ... existing code ... */
 .ml-nav__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
-    display: grid;
-    grid-template-columns: 1fr auto auto;
     align-items: center;
+    display: grid;
     gap: var(--space-4, 1rem);
+    grid-template-columns: 1fr auto auto;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
 }
 
 /* ... existing code ... */
 
 
 .ml-nav__brand a {
-    color: var(--color-text, #ffffff);
-    text-decoration: none;
-    font-weight: 700;
+    color: var(--color-text, #fff);
     font-size: 1.05rem;
+    font-weight: 700;
     letter-spacing: 0.2px;
+    text-decoration: none;
 }
+
 /* keep brand link white on all states */
 .ml-nav__brand a:hover,
 .ml-nav__brand a:focus,
 .ml-nav__brand a:active,
 .ml-nav__brand a:visited {
-  color: var(--color-text, #ffffff);
+  color: var(--color-text, #fff);
 }
 
 .ml-nav__links {
@@ -51,30 +52,32 @@
 }
 
 .ml-nav__links a {
-  color: var(--color-text, #ffffff);
-  text-decoration: none;
-  padding: 0.375rem 0.6rem;
   border-radius: 8px;
+  color: var(--color-text, #fff);
   line-height: 1;
+  padding: 0.375rem 0.6rem;
+  text-decoration: none;
   transition: background-color 160ms ease;
 }
+
 /* keep link text white on all states; only background changes on hover */
 .ml-nav__links a:hover {
-  background-color: rgba(255,255,255,0.1);
-  color: var(--color-text, #ffffff);
+  background-color: rgb(255 255 255 / 10%);
+  color: var(--color-text, #fff);
 }
+
 .ml-nav__links a:focus,
 .ml-nav__links a:active,
 .ml-nav__links a:visited {
-  color: var(--color-text, #ffffff);
+  color: var(--color-text, #fff);
 }
 
 .ml-nav__links a:focus-visible,
 .ml-userbtn:focus-visible,
 .ml-nav__brand a:focus-visible {
+  border-radius: 8px;
   outline: 2px solid var(--color-accent, #33A1E0);
   outline-offset: 2px;
-  border-radius: 8px;
 }
 
 .ml-nav__user {
@@ -83,51 +86,52 @@
 }
 
 .ml-userbtn {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center; /* center the icon perfectly */
-  border-radius: 9999px;
   background: transparent;
-  color: var(--color-text, #ffffff);
-  border: 1px solid var(--color-border, rgba(255,255,255,0.25));
+  border: 1px solid var(--color-border, rgb(255 255 255 / 25%));
+  border-radius: 9999px;
+  color: var(--color-text, #fff);
   cursor: pointer;
-  transition: background-color 160ms ease, border-color 160ms ease;
-  padding: 0;           /* avoid shifting content */
+  display: grid;
+  height: 36px;
   line-height: 0;       /* ensure vertical centering */
+  padding: 0;           /* avoid shifting content */
+  place-items: center; /* center the icon perfectly */
+  transition: background-color 160ms ease, border-color 160ms ease;
+  width: 36px;
 }
+
 .ml-userbtn svg {
   display: block;       /* remove inline SVG baseline offset */
 }
 
 .ml-userbtn:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgb(255 255 255 / 8%);
   border-color: var(--color-accent, #33A1E0);
 }
 
 /* Dropdown */
 .ml-user-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 180px;
-  background: var(--panel-bg, #ffffff);
-  color: var(--panel-text, #0f172a);
-  border: 1px solid var(--color-border, rgba(15, 23, 42, 0.12));
+  background: var(--panel-bg, #fff);
+  border: 1px solid var(--color-border, rgb(15 23 42 / 12%));
   border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 12%);
+  color: var(--panel-text, #0f172a);
+  min-width: 180px;
   padding: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
   z-index: 1100;
 }
 
 /* Kopf/Label oben (nicht klickbar) */
 .ml-user-menu__header {
-  padding: 0.25rem 0.5rem 0.5rem;
+  border-bottom: 1px solid var(--color-border, rgb(15 23 42 / 12%));
+  color: var(--muted, #445);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--muted, #445);
-  border-bottom: 1px solid var(--color-border, rgba(15, 23, 42, 0.12));
   margin-bottom: 0.5rem;
+  padding: 0.25rem 0.5rem 0.5rem;
 }
 
 .ml-user-menu__actions {
@@ -137,31 +141,31 @@
 
 /* Buttons im Menü übernehmen Site-Style und füllen die Breite */
 .ml-user-menu .ml-user-menu__btn.btn {
-  width: 100%;
   border-radius: 8px;
-  padding: 0.5rem 0.75rem;
   line-height: 1.1;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
 }
 
 /* Falls ein Link um den Button liegt, Link resetten */
 .ml-user-menu__linkbtn {
-  text-decoration: none;
   color: inherit;
   display: block;
+  text-decoration: none;
 }
 
 /* Legacy Styles – bleiben für Kompatibilität, aber werden nicht mehr für Actions genutzt */
 .ml-user-menu__item {
+  border-radius: 8px;
+  color: inherit;
   display: block;
   padding: 0.5rem 0.75rem;
   text-decoration: none;
-  color: inherit;
-  border-radius: 8px;
 }
 
 .ml-user-menu__item:hover,
 .ml-user-menu__item:focus {
-  background: rgba(15, 23, 42, 0.06);
+  background: rgb(15 23 42 / 6%);
   outline: none;
 }
 
@@ -169,11 +173,12 @@
 @media (prefers-color-scheme: dark) {
   .ml-user-menu {
     background: var(--panel-bg, #0b2230);
+    border-color: rgb(231 238 243 / 12%);
     color: var(--panel-text, #e7eef3);
-    border-color: rgba(231, 238, 243, 0.12);
   }
+
   .ml-user-menu__header {
+    border-color: rgb(231 238 243 / 12%);
     color: #b7c2cc;
-    border-color: rgba(231, 238, 243, 0.12);
   }
 }

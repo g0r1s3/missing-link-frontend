@@ -1,97 +1,213 @@
 /* src/styles/theme.css */
+
+/* ===== Core Palette (dark-first) ===== */
 :root {
-  /* Palette (dark-first theme) */
-  --color-bg: #0a1f2b;          /* deep slate-blue */
-  --color-text: #FFF9AF;        /* warm pale yellow for contrast */
-  --color-accent: #33A1E0;      /* bright cyan-blue */
-  --color-accent-dark: #1C6EA4; /* medium azure for active/pressed */
-  --color-border: #33A1E0;
-    --color-error: #d33;/* border aligns with accent */
-  --shadow: #0a1f2b;            /* darkened bg for shadows */
-
-  /* spacing, radii, etc. */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-}
-
-/* Optional: light theme using the same palette */
-:root[data-theme="light"] {
-  --color-bg: #FFF9AF;          /* light surface */
-  --color-text: #154D71;        /* dark text */
-  --color-accent: #1C6EA4;      /* accent tuned for light bg */
-  --color-accent-dark: #154D71; /* deeper accent for pressed/focus */
-  --color-border: #33A1E0;      /* crisp blue border */
-  --shadow: #9cc9e3;            /* soft cool shadow on light bg */
-}
-
-/* Optional: auto-follow system preference when no explicit data-theme is set */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) {
-    --color-bg: #FFF9AF;
-    --color-text: #154D71;
-    --color-accent: #1C6EA4;
-    --color-accent-dark: #154D71;
+    /* Palette */
+    --color-bg: #0a1f2b;          /* deep slate-blue */
+    --color-text: #FFF9AF;        /* warm pale yellow for contrast */
+    --color-accent: #33A1E0;      /* bright cyan-blue */
+    --color-accent-dark: #1C6EA4; /* medium azure for active/pressed */
     --color-border: #33A1E0;
-    --shadow: #9cc9e3;
-  }
-}
+    --color-error: #d33;          /* border aligns with accent */
+    --shadow: #0a1f2b;            /* darkened bg for shadows */
 
-/* ===== Core palette (bestehend) ===== */
-/* :root {...}  und :root[data-theme="light"] {...} bleiben wie bei dir */
+    /* Spacing & Radii (bestehend + erweitert) */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
 
-/* ===== Ergänzungen: Semantische Tokens ===== */
-:root {
-    /* Oberflächen */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+
+    /* ===== Typografie ===== */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+    --font-size-100: 12px;
+    --font-size-200: 14px;
+    --font-size-300: 16px; /* base */
+    --font-size-400: 18px;
+    --font-size-500: 20px;
+    --font-size-600: 24px;
+    --line-tight: 1.3;
+    --line-regular: 1.5;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* ===== Layout / Container / Breakpoints ===== */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --bp-sm: 640px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1280px;
+
+    /* ===== Z-Index Leitplanken ===== */
+    --z-base: 0;
+    --z-sticky: 100;
+    --z-dropdown: 200;
+    --z-nav: 300;
+    --z-overlay: 400;
+    --z-modal: 500;
+    --z-toast: 600;
+
+    /* ===== Shadow / Elevation ===== */
+    --shadow-0: none;
+    --shadow-1: 0 1px 2px color-mix(in oklab, var(--shadow) 60%, transparent);
+    --shadow-2: 0 4px 10px color-mix(in oklab, var(--shadow) 55%, transparent);
+    --shadow-3: 0 10px 20px color-mix(in oklab, var(--shadow) 50%, transparent);
+
+    /* ===== Semantik: Oberflächen ===== */
     --surface: var(--color-bg);
     --on-surface: var(--color-text);
 
     /* Panels / Cards / Inputs */
-    --panel-bg: #0f2532;              /* leicht heller als bg, für Absetzung */
+    --panel-bg: #0f2532; /* leicht heller als bg, für Absetzung */
     --panel-text: var(--color-text);
     --panel-border: color-mix(in oklab, var(--color-text) 15%, transparent);
-    --panel-shadow: 0 1px 2px color-mix(in oklab, var(--shadow) 60%, transparent);
+    --panel-shadow: var(--shadow-1);
 
     /* Akzent-Kontrast (Text auf Accent-Flächen) */
-    --on-accent: #ffffff;
+    --on-accent: #fff;
 
     /* Neutralere Border statt Accent */
     --border-color: color-mix(in oklab, var(--color-text) 15%, transparent);
     --border-color-strong: color-mix(in oklab, var(--color-text) 25%, transparent);
 
-    /* Feedback */
+    /* ===== Statusfarben ===== */
     --color-success: #22c55e;
     --color-warning: #eab308;
+    --color-info: #38bdf8;
+    --on-success: #071b0e;
+    --on-warning: #2a2305;
+    --on-info: #06141a;
 
-    /* Fokus / Interaktion */
+    /* ===== Interaction / Motion ===== */
     --focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-accent) 40%, transparent);
+    --duration-1: 120ms;
+    --duration-2: 200ms;
+    --duration-3: 300ms;
+    --ease-standard: cubic-bezier(.2, .0, .2, 1);
+    --ease-emphasized: cubic-bezier(.2, .0, 0, 1);
+    --opacity-50: 0.5;
+    --opacity-75: 0.75;
+
+    /* ===== Overlay / Scrim ===== */
+    --scrim: color-mix(in oklab, #000 50%, transparent);
+
+    /* ===== Komponenten-Semantik ===== */
+    /* Inputs */
+    --input-bg: var(--panel-bg);
+    --input-text: var(--panel-text);
+    --input-border: var(--panel-border);
+    --input-border-hover: color-mix(in oklab, var(--color-text) 25%, transparent);
+    --input-border-focus: var(--color-accent);
+    --input-shadow-focus: var(--focus-ring);
+    --input-placeholder: color-mix(in oklab, var(--panel-text) 55%, transparent);
+
+    /* Buttons (Primary) */
+    --btn-primary-bg: var(--color-accent);
+    --btn-primary-bg-active: var(--color-accent-dark);
+    --btn-primary-text: #fff;
+
+    /* Links */
+    --link: var(--color-accent);
+    --link-hover: var(--color-accent-dark);
+
+    /* Badges (Beispiel) */
+    --badge-bg: color-mix(in oklab, var(--color-accent) 20%, transparent);
+    --badge-text: var(--color-text);
 }
 
-/* Light Theme-Mapping */
+/* ===== Light Theme using same palette ===== */
 :root[data-theme="light"] {
+    --color-bg: #FFF9AF;          /* light surface */
+    --color-text: #154D71;        /* dark text */
+    --color-accent: #1C6EA4;      /* accent tuned for light bg */
+    --color-accent-dark: #154D71; /* deeper accent for pressed/focus */
+    --color-border: #33A1E0;      /* crisp blue border */
+    --shadow: #9cc9e3;            /* soft cool shadow on light bg */
+
+    /* Semantik-Mappings (light) */
     --surface: var(--color-bg);
     --on-surface: var(--color-text);
 
     --panel-bg: #fffef0;
     --panel-text: var(--color-text);
     --panel-border: color-mix(in oklab, #000 18%, transparent);
+    --panel-shadow: var(--shadow-1);
 
-    --on-accent: #ffffff;
+    --on-accent: #fff;
 
     --border-color: color-mix(in oklab, #000 18%, transparent);
     --border-color-strong: color-mix(in oklab, #000 28%, transparent);
 
     --focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);
+
+    /* Inputs */
+    --input-bg: var(--panel-bg);
+    --input-text: var(--panel-text);
+    --input-border: var(--panel-border);
+    --input-border-hover: color-mix(in oklab, #000 28%, transparent);
+    --input-border-focus: var(--color-accent);
+    --input-shadow-focus: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);
+
+    /* Links */
+    --link: var(--color-accent);
+    --link-hover: var(--color-accent-dark);
 }
 
-/* ===== Basis-Anwendungen (empfohlen) ===== */
+/* ===== Optional: auto-follow system preference when no explicit data-theme is set ===== */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --color-bg: #FFF9AF;
+        --color-text: #154D71;
+        --color-accent: #1C6EA4;
+        --color-accent-dark: #154D71;
+        --color-border: #33A1E0;
+        --shadow: #9cc9e3;
+
+        /* Semantik-Mappings (wie oben im light-Block) */
+        --surface: var(--color-bg);
+        --on-surface: var(--color-text);
+        --panel-bg: #fffef0;
+        --panel-text: var(--color-text);
+        --panel-border: color-mix(in oklab, #000 18%, transparent);
+        --panel-shadow: var(--shadow-1);
+        --on-accent: #fff;
+        --border-color: color-mix(in oklab, #000 18%, transparent);
+        --border-color-strong: color-mix(in oklab, #000 28%, transparent);
+        --focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);
+
+        --input-bg: var(--panel-bg);
+        --input-text: var(--panel-text);
+        --input-border: var(--panel-border);
+        --input-border-hover: color-mix(in oklab, #000 28%, transparent);
+        --input-border-focus: var(--color-accent);
+        --input-shadow-focus: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);
+
+        --link: var(--color-accent);
+        --link-hover: var(--color-accent-dark);
+    }
+}
+
+/* ===== Basis-Anwendungen ===== */
 html, body {
     background: var(--surface);
     color: var(--on-surface);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-300);
+    line-height: var(--line-regular);
 }
 
 :focus-visible {
@@ -100,7 +216,7 @@ html, body {
     border-radius: 6px;
 }
 
-/* Utility (nützlich für Inputs/Panels) */
+/* ===== Utilities ===== */
 .u-card {
     background: var(--panel-bg);
     color: var(--panel-text);
@@ -110,19 +226,20 @@ html, body {
 }
 
 .u-input {
-    background: var(--panel-bg);
-    color: var(--panel-text);
-    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
     border-radius: var(--radius-sm);
+    transition: border-color var(--duration-2) var(--ease-standard), box-shadow var(--duration-2) var(--ease-standard);
 }
-
-.u-input:hover { border-color: var(--border-color-strong); }
-.u-input:focus { box-shadow: var(--focus-ring); border-color: var(--color-accent); }
+.u-input:hover { border-color: var(--input-border-hover); }
+.u-input:focus { border-color: var(--input-border-focus); box-shadow: var(--input-shadow-focus); }
+.u-input::placeholder { color: var(--input-placeholder); }
 
 .u-btn--primary {
-    background: var(--color-accent);
-    color: var(--on-accent);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border-radius: var(--radius-sm);
+    transition: background var(--duration-2) var(--ease-standard);
 }
-.u-btn--primary:active {
-    background: var(--color-accent-dark); /* schon vorhanden */
-}
+.u-btn--primary:active { background: var(--btn-primary-bg-active); }

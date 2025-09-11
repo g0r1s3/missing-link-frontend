@@ -1,28 +1,30 @@
 /* src/components/LPContact/LPContact.css */
 .ml-contact {
   background: color-mix(in oklab, var(--color-bg) 92%, var(--color-text) 8%);
-  color: var(--color-text);
     border: 1px solid color-mix(in oklab, var(--color-border) 45%, transparent);
     border-radius: var(--radius-md, 16px);
+  color: var(--color-text);
+
   /* entferne die obere Linie (verursachte blauen Strich) */
+
   /* border-top: 1px solid color-mix(in oklab, var(--color-border) 45%, transparent); */
 }
 
 .ml-contact__container {
-  max-width: 960px;
   margin: 0 auto;
-  padding: 1rem 1rem;
+  max-width: 960px;
+  padding: 1rem;
 }
 
 /* Abgerundetes Panel – sichtbare Rundungen dank overflow: hidden */
 .ml-contact__panel {
   background: color-mix(in oklab, var(--color-bg) 88%, var(--color-text) 12%);
+  background-clip: padding-box;
   border: 1px solid color-mix(in oklab, var(--color-border) 55%, transparent);
   border-radius: var(--radius-lg, 16px);
-  overflow: hidden;
   box-shadow: 0 10px 30px color-mix(in oklab, var(--shadow, black) 18%, transparent);
+  overflow: hidden;
   padding: var(--space-4, 1rem);
-  background-clip: padding-box;
 }
 
 /* Inputs im Panel ebenfalls abrunden (TextField) */
@@ -40,10 +42,10 @@
   gap: 0.75rem;
 }
 
-@media (min-width: 720px) {
+@media (width >= 720px) {
   .ml-contact__row:first-of-type {
-    grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -51,15 +53,15 @@
 
 /* ... existing code ... */
 .ml-contact__actions {
-  margin-top: 0.25rem;
   display: flex;
   justify-content: flex-end;
+  margin-top: 0.25rem;
 }
 
 /* Success-Box mit denselben Rundungen */
 .ml-contact__success {
-  padding: 1rem;
-  border-radius: var(--radius-md);
   background: color-mix(in oklab, var(--color-bg) 84%, var(--color-text) 16%);
   border: 1px solid color-mix(in oklab, var(--color-border) 55%, transparent);
+  border-radius: var(--radius-md);
+  padding: 1rem;
 }

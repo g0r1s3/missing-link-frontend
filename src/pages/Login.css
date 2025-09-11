@@ -6,15 +6,17 @@
 
 /* Seite: volle Breite, volle Höhe */
 .ml-auth-page {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* prevent horizontal overflow on the login page */
-    overflow-x: clip;
     background: var(--color-bg);
     color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    /* prevent horizontal overflow on the login page */
+    overflow-x: clip;
+    width: 100%;
 }
+
 /* ensure padding/borders don't cause overflow */
 .ml-auth-page, .ml-auth-page * {
     box-sizing: border-box;
@@ -22,30 +24,31 @@
 
 /* Hauptbereich: Inhalt mittig platzieren, selbst aber volle Breite */
 .ml-auth-main {
-    flex: 1;
     display: grid;
-    place-items: center;
+    flex: 1;
     padding: 2rem 1rem;
+    place-items: center;
     width: 100%;
 }
 
 /* Nur die Karte ist schmal – NICHT der Seiten-Wrapper */
 .ml-auth-card {
+    background: #fff;
+    border: 1px solid rgb(15 23 42 / 12%);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+    color: #0f172a;
+    padding: 1.25rem;
+
     /* avoid vw to prevent scrollbar-induced overflow */
     width: min(420px, calc(100% - (var(--space-4, 1rem) * 2)));
-    background: #ffffff;
-    color: #0f172a;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    padding: 1.25rem;
 }
 
 /* Titel */
 .ml-auth-title {
-    margin: 0 0 1rem 0;
     font-size: 1.4rem;
     font-weight: 700;
+    margin: 0 0 1rem;
 }
 
 /* Formular-Layout */
@@ -56,23 +59,25 @@
 
 /* Alternativ-Link (Register etc.) */
 .ml-auth-alt {
+    color: #445;
     margin-top: 0.75rem;
     text-align: center;
-    color: #445;
 }
+
 .ml-auth-alt a {
     color: #154D71;
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
 }
+
 .ml-auth-alt a:hover {
     text-decoration: underline;
 }
 
 /* Re-center the NavBar inner container on the login page */
 .ml-auth-page .ml-navbar--fluid .ml-nav__inner {
-    max-width: 1200px;
     margin: 0 auto;
+    max-width: 1200px;
     padding-left: var(--space-4, 1rem);
     padding-right: var(--space-4, 1rem);
 }
@@ -81,7 +86,7 @@
 @media (prefers-color-scheme: dark) {
     .ml-auth-card {
         background: #0b2230;
+        border-color: rgb(231 238 243 / 12%);
         color: #e7eef3;
-        border-color: rgba(231, 238, 243, 0.12);
     }
 }

@@ -1,7 +1,7 @@
 /* Seitenlayout */
 .ml-profile {
-    max-width: 960px;
     margin: 0 auto;
+    max-width: 960px;
     padding: var(--space-5, 2rem) var(--space-4, 1rem);
 }
 
@@ -9,28 +9,28 @@
 .ml-section { margin-top: var(--space-5, 2rem); }
 
 .ml-section__header {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
     margin-bottom: var(--space-3, 0.75rem);
 }
 
 .ml-section__title {
-    margin: 0;
     color: var(--color-text);
+    margin: 0;
 }
 
 /* Add-Link als Button ohne underline, konsistent zur UI */
 .ml-addlink {
-    display: inline-block;
-    text-decoration: none;
-    padding: 0.5rem 0.875rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid transparent;
     background: var(--color-accent);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
     color: white;
+    display: inline-block;
     font-weight: 600;
     line-height: 1.2;
+    padding: 0.5rem 0.875rem;
+    text-decoration: none;
 }
 
 /* States neutral halten (keine Unterstreichung) */
@@ -38,14 +38,14 @@
 .ml-addlink:focus,
 .ml-addlink:active,
 .ml-addlink:visited {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
 }
 
 .ml-addlink:focus-visible {
+    border-radius: var(--radius-sm);
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
-    border-radius: var(--radius-sm);
 }
 
 /* Status-Texte */
@@ -55,72 +55,72 @@
 /* Leerer Zustand Box */
 .ml-empty {
     background: color-mix(in oklab, var(--color-bg) 92%, var(--color-text) 8%);
-    color: var(--color-text);
     border: 1px solid color-mix(in oklab, var(--color-border) 45%, transparent);
     border-radius: var(--radius-sm);
+    color: var(--color-text);
     padding: var(--space-4);
 }
-.ml-empty__text { margin: 0; color: color-mix(in oklab, var(--color-text) 85%, black); }
+.ml-empty__text { color: color-mix(in oklab, var(--color-text) 85%, black); margin: 0; }
 
 /* Liste */
 .ml-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: grid;
     gap: var(--space-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 /* Bike-Item – am LPFeature-Schema orientiert, ohne Animation/Underline */
 .ml-bikeitem {
-    display: block;
-    text-decoration: none;
     background: color-mix(in oklab, var(--color-bg) 92%, var(--color-text) 8%);
-    color: var(--color-text);
     border: 1px solid color-mix(in oklab, var(--color-border) 45%, transparent);
     border-radius: var(--radius-sm);
-    padding: var(--space-3) var(--space-4);
     box-shadow: 0 6px 22px color-mix(in oklab, var(--shadow) 22%, transparent);
+    color: var(--color-text);
+    display: block;
     isolation: isolate;
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none;
 }
 
 .ml-bikeitem:hover,
 .ml-bikeitem:focus,
 .ml-bikeitem:active,
 .ml-bikeitem:visited {
-    text-decoration: none;
     color: var(--color-text);
+    text-decoration: none;
 }
 
 .ml-bikeitem:hover {
-    box-shadow: 0 10px 28px color-mix(in oklab, var(--shadow) 28%, transparent);
     border-color: var(--color-border);
+    box-shadow: 0 10px 28px color-mix(in oklab, var(--shadow) 28%, transparent);
 }
 
 .ml-bikeitem:focus-visible {
+    border-radius: var(--radius-sm);
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
-    border-radius: var(--radius-sm);
 }
 
 .ml-bikeitem__row {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    display: flex;
     gap: var(--space-3);
+    justify-content: space-between;
 }
 
 .ml-bikeitem__texts { min-width: 0; }
 
 .ml-bikeitem__title {
-    margin: 0;
-    font-weight: 600;
     color: var(--color-text);
+    font-weight: 600;
+    margin: 0;
 }
 
 .ml-bikeitem__meta {
-    font-size: 0.9rem;
     color: color-mix(in oklab, var(--color-text) 85%, black);
+    font-size: 0.9rem;
     margin-top: 0.125rem;
 }
 

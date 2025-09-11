@@ -8,40 +8,40 @@
 
 /* Page wrapper */
 .ml-auth-page {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     background: var(--color-bg);
     color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
 }
 
 /* Main centers the card */
 .ml-auth-main {
-    flex: 1;
     display: grid;
-    place-items: center;
+    flex: 1;
     padding: var(--space-4) var(--space-4);
+    place-items: center;
     width: 100%;
 }
 
 /* Auth card (uses theme palette) */
 .ml-auth-card {
-    width: min(420px, 92vw);
     background: var(--color-bg);
-    color: var(--color-text);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     box-shadow: 0 10px 30px color-mix(in oklab, var(--shadow) 35%, transparent);
+    color: var(--color-text);
     padding: var(--space-4);
+    width: min(420px, 92vw);
 }
 
 /* Title */
 .ml-auth-title {
-    margin: 0 0 var(--space-3) 0;
+    color: inherit;
     font-size: 1.4rem;
     font-weight: 700;
-    color: inherit;
+    margin: 0 0 var(--space-3) 0;
 }
 
 /* Form layout */
@@ -52,15 +52,15 @@
 
 /* Alt link row */
 .ml-auth-alt {
+    color: color-mix(in oklab, var(--color-text) 70%, black);
     margin-top: var(--space-3);
     text-align: center;
-    color: color-mix(in oklab, var(--color-text) 70%, black);
 }
 
 .ml-auth-alt a {
     color: var(--color-accent);
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .ml-auth-alt a:hover {

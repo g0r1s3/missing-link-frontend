@@ -1,125 +1,131 @@
 /* src/components/Footer/Footer.css */
 .ml-footer {
-    width: 100%;
     background: var(--color-bg, #154D71);
-    color: var(--color-text, #ffffff);
-    border-top: 1px solid var(--color-border, rgba(255,255,255,0.15));
-    box-shadow: 0 -1px 8px rgba(0,0,0,0.08);
+    border-top: 1px solid var(--color-border, rgb(255 255 255 / 15%));
+    box-shadow: 0 -1px 8px rgb(0 0 0 / 8%);
+    color: var(--color-text, #fff);
+    width: 100%;
 }
 
 .ml-footer__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    /* more vertical padding to avoid cramped look */
-    padding: var(--space-4, 1rem) var(--space-4, 1rem);
     display: grid;
     gap: calc(var(--space-4, 1rem) + 0.25rem);
+    margin: 0 auto;
+    max-width: 1200px;
+
+    /* more vertical padding to avoid cramped look */
+    padding: var(--space-4, 1rem) var(--space-4, 1rem);
 }
 
 .ml-footer__brandrow {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: var(--space-4, 1rem);
+
     /* center brand + copyright in the middle of the screen */
     justify-content: center;
     text-align: center;
 }
 
 .ml-footer__brand {
-    font-weight: 700;
     font-size: 1.05rem;
+    font-weight: 700;
     letter-spacing: 0.2px;
 }
 
 .ml-footer__copy {
-    opacity: 0.85;
     font-size: 0.95rem;
+    opacity: 0.85;
 }
 
 .ml-footer__links {
     display: flex;
     flex-wrap: wrap;
+    gap: calc(var(--space-4, 1rem) + 0.25rem);
+
     /* center links to mirror NavBar symmetry and reduce cramped feel */
     justify-content: center;
-    gap: calc(var(--space-4, 1rem) + 0.25rem);
 }
 
 .ml-footer__link {
     appearance: none;
     background: transparent;
     border: none;
-    color: var(--color-text, #ffffff);
-    text-decoration: none;
-    /* add a bit more padding for comfort */
-    padding: 0.45rem 0.75rem;
     border-radius: 8px;
-    line-height: 1;
-    transition: background-color 160ms ease;
+    color: var(--color-text, #fff);
     cursor: pointer;
     font: inherit;
+    line-height: 1;
+
+    /* add a bit more padding for comfort */
+    padding: 0.45rem 0.75rem;
+    text-decoration: none;
+    transition: background-color 160ms ease;
 }
+
 .ml-footer__link:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: var(--color-text, #ffffff);
+    background-color: rgb(255 255 255 / 10%);
+    color: var(--color-text, #fff);
 }
 
 .ml-footer__link:focus-visible,
 .ml-btn:focus-visible {
+    border-radius: 8px;
     outline: 2px solid var(--color-accent, #33A1E0);
     outline-offset: 2px;
-    border-radius: 8px;
 }
 
 .ml-footer__note {
-    opacity: 0.9;
     font-size: 0.95rem;
     margin: 0.25rem 0 0.2rem;
+    opacity: 0.9;
     text-align: center; /* keep consistent centering */
 }
 
 /* Modal styles aligned with theme */
 .ml-modal__backdrop {
-    position: fixed;
-    inset: 0;
     background: color-mix(in oklab, var(--color-bg, #154D71) 70%, black);
     display: grid;
+    inset: 0;
     place-items: center;
+    position: fixed;
     z-index: 1000;
 }
 
 .ml-modal {
-    width: min(720px, 92vw);
+    background: var(--color-bg, #154D71);
+    border: 1px solid var(--color-border, rgb(255 255 255 / 25%));
+    border-radius: var(--radius-sm, 6px);
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 35%);
+    color: var(--color-text, #fff);
     max-height: 80vh;
     overflow: auto;
-    background: var(--color-bg, #154D71);
-    color: var(--color-text, #ffffff);
-    border: 1px solid var(--color-border, rgba(255,255,255,0.25));
-    border-radius: var(--radius-sm, 6px);
-    box-shadow: 0 10px 30px 0 rgba(0,0,0,0.35);
     padding: 1rem 1rem 0.75rem;
+    width: min(720px, 92vw);
 }
 
 .ml-modal__title {
-    margin: 0 0 0.65rem 0;
+    margin: 0 0 0.65rem;
 }
 
 .ml-modal__actions {
     display: flex;
-    justify-content: flex-end;
     gap: 0.6rem;
+    justify-content: flex-end;
     padding: 0.6rem 0 0.85rem;
 }
 
 .ml-btn {
     background: var(--color-accent, #33A1E0);
-    color: var(--color-text, #ffffff);
-    border: 1px solid var(--color-border, rgba(255,255,255,0.25));
-    padding: 0.55rem 1rem;
+    border: 1px solid var(--color-border, rgb(255 255 255 / 25%));
     border-radius: var(--radius-sm, 6px);
+    color: var(--color-text, #fff);
     cursor: pointer;
+    padding: 0.55rem 1rem;
     transition: filter 160ms ease, border-color 160ms ease;
 }
+
 .ml-btn:hover {
-    filter: brightness(0.95);
     border-color: var(--color-accent, #33A1E0);
+    filter: brightness(0.95);
 }
