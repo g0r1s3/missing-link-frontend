@@ -1,66 +1,66 @@
-.bikeItem {
-  background: color-mix(in oklab, var(--color-bg) 92%, var(--color-text) 8%);
-  border: 1px solid color-mix(in oklab, var(--color-border) 45%, transparent);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 6px 22px color-mix(in oklab, var(--shadow) 22%, transparent);
-  color: var(--color-text);
-  display: block;
-  isolation: isolate;
-  padding: var(--space-3) var(--space-4);
-  text-decoration: none;
+.bike-item {
+    background: var(--panel-bg);
+    border-color: var(--panel-border);
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: var(--shadow-2);
+    color: var(--panel-text);
+    display: block;
+    isolation: isolate;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+    text-decoration: none;
 }
 
-/* Konsistente Zustände ohne Unterstreichung */
-.bikeItem:hover,
-.bikeItem:focus,
-.bikeItem:active,
-.bikeItem:visited {
-  color: var(--color-text);
-  text-decoration: none;
+.bike-item:active,
+.bike-item:focus,
+.bike-item:hover,
+.bike-item:visited {
+    color: var(--panel-text);
+    text-decoration: none;
 }
 
-/* Dezente Hebung im Hover (ohne Transition/Animation) */
-.bikeItem:hover {
-  border-color: var(--color-border);
-  box-shadow: 0 10px 28px color-mix(in oklab, var(--shadow) 28%, transparent);
+.bike-item:hover {
+    border-color: var(--border-color-strong);
+    box-shadow: var(--shadow-3);
 }
 
-/* Klarer Fokus – konsistent zur UI */
-.bikeItem:focus-visible {
-  border-radius: var(--radius-sm);
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+.bike-item:focus-visible {
+    border-radius: var(--radius-sm);
+    box-shadow: var(--focus-ring);
+    outline: none;
 }
 
-.bikeItemRow {
-  align-items: center;
-  display: flex;
-  gap: var(--space-3);
-  justify-content: space-between;
+.bike-item-row {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3);
+    justify-content: space-between;
 }
 
-.bikeItemTexts {
-  min-width: 0;
+.bike-item-texts {
+    min-width: 0;
 }
 
-.bikeItemTitle {
-  color: var(--color-text);
-  font-weight: 600;
-  margin: 0;
+.bike-item-title {
+    color: var(--panel-text);
+    font-weight: 600;
 }
 
-.bikeItemMeta {
-  color: color-mix(in oklab, var(--color-text) 85%, black);
-  font-size: 0.9rem;
-  margin-top: 0.125rem;
+.bike-item-meta {
+    color: var(--panel-text);
+    font-size: 0.9rem;
+    margin-top: var(--space-1);
 }
 
-.bikeItemCta {
-  color: color-mix(in oklab, var(--color-text) 85%, black);
-  white-space: nowrap;
+.bike-item-cta {
+    color: var(--panel-text);
+    white-space: nowrap;
 }
 
-/* Motion preferences – keine Transitionen aktiv, aber fallbackfreundlich */
 @media (prefers-reduced-motion: reduce) {
-  .bikeItem { transition: none; }
+    .bike-item {
+        transition: none;
+    }
 }

@@ -4,56 +4,59 @@ import { Link } from 'react-router-dom'
 import './BikeListItem.css'
 
 export type Bike = {
-    id: string | number
-    brand?: string
-    model?: string
-    color?: string
-    year?: string | number
+  id: string | number
+  brand?: string
+  model?: string
+  color?: string
+  year?: string | number
 }
 
 type Props = {
-    bike: Bike
+  bike: Bike
 }
 
 const BikeListItem: React.FC<Props> = ({ bike }) => {
-    const { id, brand, model, color, year } = bike || {}
-    const isClickable = id !== undefined && id !== null && id !== ''
+  const { id, brand, model, color, year } = bike || {}
+  const isClickable = id !== undefined && id !== null && id !== ''
 
-    const content = (
-        <div className="bikeItemRow">
-            <div className="bikeItemTexts">
-                <div className="bikeItemTitle">
-                    {brand || 'Unbekannte Marke'}{model ? ` • ${model}` : ''}
-                </div>
-                <div className="bikeItemMeta">
-                    {[
-                        color && `${color}`,
-                        year !== undefined && year !== null && year !== '' ? `• ${year}` : null
-                    ].filter(Boolean).join(' ')}
-                </div>
-            </div>
-            <span className="bikeItemCta">{isClickable ? 'Details ›' : ''}</span>
+  const content = (
+    <div className="bike-item-row">
+      <div className="bike-item-texts">
+        <div className="bike-item-title">
+          {brand || 'Unbekannte Marke'}
+          {model ? ` • ${model}` : ''}
         </div>
-    )
+        <div className="bike-item-meta">
+          {[
+            color && `${color}`,
+            year !== undefined && year !== null && year !== '' ? `• ${year}` : null,
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        </div>
+      </div>
+      <span className="bike-item-cta">{isClickable ? 'Details ›' : ''}</span>
+    </div>
+  )
 
-    if (isClickable) {
-        return (
-            <Link
-                to={`/bikes/${id}`}
-                className="bikeItem"
-                aria-label={`Details zu ${brand || 'Fahrzeug'}`}
-            >
-                {content}
-            </Link>
-        )
-    }
-
-    // Fallback ohne Link, wenn keine ID vorhanden ist
+  if (isClickable) {
     return (
-        <div className="bikeItem" aria-label={brand || 'Fahrzeug'}>
-            {content}
-        </div>
+      <Link
+        to={`/bikes/${id}`}
+        className="bike-item"
+        aria-label={`Details zu ${brand || 'Fahrzeug'}`}
+      >
+        {content}
+      </Link>
     )
+  }
+
+  // Fallback ohne Link, wenn keine ID vorhanden ist
+  return (
+    <div className="bike-item" aria-label={brand || 'Fahrzeug'}>
+      {content}
+    </div>
+  )
 }
 
 export default BikeListItem
