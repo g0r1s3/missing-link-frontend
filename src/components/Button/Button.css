@@ -1,58 +1,50 @@
 /* src/components/Button/Button.css */
-.btn {
-    /* map to theme tokens with safe fallbacks */
-    --btn-bg: var(--color-accent, #33A1E0);
-    --btn-bg-hover: var(--color-accent-dark, #1C6EA4);
-    --btn-fg: var(--color-text, #FFF9AF);
-    --btn-border: var(--color-border, #33A1E0);
-    --btn-bg-ghost: transparent;
-    --btn-fg-ghost: var(--color-accent, #33A1E0);
-    --btn-border-ghost: var(--color-accent, #33A1E0);
-    --btn-bg-ghost-hover: color-mix(in oklab, var(--color-accent) 12%, transparent);
 
+/* Basis */
+.btn {
     align-items: center;
-    background: var(--btn-bg);
-    border: 1px solid var(--btn-border);
-    border-radius: 9999px; /* smooth & rounded (pill) */
-    color: var(--btn-fg);
+    background: var(--btn-primary-bg);
+    border-color: var(--border-color);
+    border-radius: var(--radius-full);
+    border-style: solid;
+    border-width: 1px;
+    color: var(--btn-primary-text);
     cursor: pointer;
     display: inline-flex;
     font-weight: 600;
-    gap: 0.5rem;
+    gap: var(--space-2);
     justify-content: center;
     line-height: 1;
-    padding: 0.6rem 1rem; /* mid-sized */
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
     text-decoration: none;
     user-select: none;
-
-    /* no transitions/animations per request */
 }
 
+/* States */
 .btn:hover {
-    background: var(--btn-bg-hover);
+    background: var(--btn-primary-bg-active);
 }
 
 .btn:focus-visible {
-    outline: 2px solid var(--color-accent-dark, #1C6EA4);
-    outline-offset: 2px;
+    border-color: var(--color-accent);
+    box-shadow: var(--focus-ring);
+    outline: none;
 }
 
 .btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+    opacity: var(--opacity-75);
+    pointer-events: none;
 }
 
-/* Variants */
-.btn--primary {
-    /* uses defaults from .btn */
+/* Varianten */
+.btn-ghost {
+    background: var(--btn-ghost-bg);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
-.btn--ghost {
-    background: var(--btn-bg-ghost);
-    border-color: var(--btn-border-ghost);
-    color: var(--btn-fg-ghost);
-}
-
-.btn--ghost:hover {
-    background: var(--btn-bg-ghost-hover);
+.btn-ghost:hover {
+    background: var(--btn-ghost-bg-hover);
+    border-color: var(--border-color-strong);
 }

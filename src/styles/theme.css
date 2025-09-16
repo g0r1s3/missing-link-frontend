@@ -119,6 +119,8 @@
     --btn-primary-bg: var(--color-accent);
     --btn-primary-bg-active: var(--color-accent-dark);
     --btn-primary-text: #fff;
+    --btn-ghost-bg: transparent;
+    --btn-ghost-bg-hover: transparent; /* oder ein leichtes Panel: var(--panel-bg) */
 
     /* Links */
     --link: var(--color-accent);

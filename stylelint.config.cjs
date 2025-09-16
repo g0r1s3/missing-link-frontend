@@ -27,12 +27,18 @@ module.exports = {
     "declaration-property-value-allowed-list": {
       "/^color$/": [
         /^var\(--color-[a-z0-9-]+\)$/i,
-        /^var\(--panel-text\)$/i
+        /^var\(--panel-text\)$/i,
+        /^var\(--btn-primary-text\)$/i            // ⬅️ NEU
       ],
       "/^background(-color)?$/": [
         /^var\(--color-[a-z0-9-]+\)$/i,
         /^var\(--panel-bg\)$/i,
-        /^var\(--surface\)$/i
+        /^var\(--surface\)$/i,
+        /^var\(--btn-primary-bg\)$/i,             // ⬅️ NEU
+        /^var\(--btn-primary-bg-active\)$/i,      // ⬅️ NEU
+        /^var\(--btn-ghost-bg\)$/i,               // ⬅️ NEU
+        /^var\(--btn-ghost-bg-hover\)$/i          // ⬅️ NEU
+
       ],
       "/^border(-top|-right|-bottom|-left)?(-color)?$/": [
         /^var\(--color-[a-z0-9-]+\)$/i,
