@@ -1,131 +1,136 @@
 /* src/components/Footer/Footer.css */
+
+/* Footer: Grid-Wrapper zentriert Inhalt */
 .ml-footer {
-    background: var(--color-bg, #154D71);
-    border-top: 1px solid var(--color-border, rgb(255 255 255 / 15%));
-    box-shadow: 0 -1px 8px rgb(0 0 0 / 8%);
-    color: var(--color-text, #fff);
+    background: var(--surface);
+    border-top-color: var(--border-color);
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-shadow: var(--shadow-1);
+    color: var(--on-surface);
+    display: grid;
+    place-items: center;
     width: 100%;
 }
 
-.ml-footer__inner {
+/* Innenbereich: maximale Breite per Container-Token */
+.ml-footer-inner {
     display: grid;
-    gap: calc(var(--space-4, 1rem) + 0.25rem);
-    margin: 0 auto;
-    max-width: 1200px;
-
-    /* more vertical padding to avoid cramped look */
-    padding: var(--space-4, 1rem) var(--space-4, 1rem);
+    gap: var(--space-4);
+    inline-size: min(100%, var(--container-lg));
+    padding-block: var(--space-4);
+    padding-inline: var(--space-4);
 }
 
-.ml-footer__brandrow {
+/* Brand + Copyright */
+.ml-footer-brand-row {
     align-items: center;
     display: flex;
-    gap: var(--space-4, 1rem);
-
-    /* center brand + copyright in the middle of the screen */
+    gap: var(--space-4);
     justify-content: center;
     text-align: center;
 }
 
-.ml-footer__brand {
-    font-size: 1.05rem;
+.ml-footer-brand {
     font-weight: 700;
-    letter-spacing: 0.2px;
 }
 
-.ml-footer__copy {
-    font-size: 0.95rem;
-    opacity: 0.85;
+.ml-footer-copy {
+    opacity: var(--opacity-75);
 }
 
-.ml-footer__links {
+/* Linkliste */
+.ml-footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: calc(var(--space-4, 1rem) + 0.25rem);
-
-    /* center links to mirror NavBar symmetry and reduce cramped feel */
+    gap: var(--space-4);
     justify-content: center;
 }
 
-.ml-footer__link {
+/* Buttons als Links – nur Tokens verwenden */
+.ml-footer-link {
     appearance: none;
-    background: transparent;
-    border: none;
-    border-radius: 8px;
-    color: var(--color-text, #fff);
+    background: var(--footer-link-bg);
+    border-color: var(--border-color);
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    border-width: 0; /* kein Rahmen im Normalzustand */
+    color: var(--on-surface);
     cursor: pointer;
     font: inherit;
     line-height: 1;
-
-    /* add a bit more padding for comfort */
-    padding: 0.45rem 0.75rem;
+    padding-block: var(--space-2);
+    padding-inline: var(--space-3);
     text-decoration: none;
-    transition: background-color 160ms ease;
 }
 
-.ml-footer__link:hover {
-    background-color: rgb(255 255 255 / 10%);
-    color: var(--color-text, #fff);
+.ml-footer-link:hover {
+    background: var(--footer-link-bg-hover);
+    color: var(--on-surface);
 }
 
-.ml-footer__link:focus-visible,
-.ml-btn:focus-visible {
-    border-radius: 8px;
-    outline: 2px solid var(--color-accent, #33A1E0);
-    outline-offset: 2px;
+.ml-footer-link:focus-visible {
+    border-color: var(--color-accent);
+    box-shadow: var(--focus-ring);
+    outline: none;
 }
 
-.ml-footer__note {
-    font-size: 0.95rem;
-    margin: 0.25rem 0 0.2rem;
-    opacity: 0.9;
-    text-align: center; /* keep consistent centering */
-}
-
-/* Modal styles aligned with theme */
-.ml-modal__backdrop {
-    background: color-mix(in oklab, var(--color-bg, #154D71) 70%, black);
+/* ===== Modal ===== */
+.ml-modal-backdrop {
+    background: var(--scrim);
     display: grid;
     inset: 0;
     place-items: center;
     position: fixed;
-    z-index: 1000;
+    z-index: var(--z-modal);
 }
 
 .ml-modal {
-    background: var(--color-bg, #154D71);
-    border: 1px solid var(--color-border, rgb(255 255 255 / 25%));
-    border-radius: var(--radius-sm, 6px);
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 35%);
-    color: var(--color-text, #fff);
+    background: var(--panel-bg);
+    border-color: var(--panel-border);
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: var(--shadow-3);
+    color: var(--panel-text);
     max-height: 80vh;
     overflow: auto;
-    padding: 1rem 1rem 0.75rem;
+    padding-block: var(--space-4);
+    padding-inline: var(--space-4);
     width: min(720px, 92vw);
 }
 
-.ml-modal__title {
-    margin: 0 0 0.65rem;
+.ml-modal-title {
+    /* kein margin:0 Literal – Default reicht */
 }
 
-.ml-modal__actions {
+.ml-modal-actions {
     display: flex;
-    gap: 0.6rem;
+    gap: var(--space-3);
     justify-content: flex-end;
-    padding: 0.6rem 0 0.85rem;
+    padding-block: var(--space-3);
 }
 
+/* Simple Modal-Button (separat von globaler Button-Komponente) */
 .ml-btn {
-    background: var(--color-accent, #33A1E0);
-    border: 1px solid var(--color-border, rgb(255 255 255 / 25%));
-    border-radius: var(--radius-sm, 6px);
-    color: var(--color-text, #fff);
+    background: var(--btn-primary-bg);
+    border-color: var(--border-color);
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    border-width: 1px;
+    color: var(--btn-primary-text);
     cursor: pointer;
-    padding: 0.55rem 1rem;
-    transition: filter 160ms ease, border-color 160ms ease;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+}
+
+.ml-btn:focus-visible {
+    border-color: var(--color-accent);
+    box-shadow: var(--focus-ring);
+    outline: none;
 }
 
 .ml-btn:hover {
-    border-color: var(--color-accent, #33A1E0);
-    filter: brightness(0.95);
+    background: var(--btn-primary-bg-active);
+    border-color: var(--border-color-strong);
 }

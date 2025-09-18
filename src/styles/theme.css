@@ -101,10 +101,8 @@
     --ease-emphasized: cubic-bezier(.2, .0, 0, 1);
     --opacity-50: 0.5;
     --opacity-75: 0.75;
-
     /* ===== Overlay / Scrim ===== */
     --scrim: color-mix(in oklab, #000 50%, transparent);
-
     /* ===== Komponenten-Semantik ===== */
     /* Inputs */
     --input-bg: var(--panel-bg);
@@ -125,6 +123,10 @@
     /* Links */
     --link: var(--color-accent);
     --link-hover: var(--color-accent-dark);
+
+    --footer-link-bg: transparent;
+    --footer-link-bg-hover: var(--panel-bg);
+    --scrim: color-mix(in oklab, var(--surface) 70%, black);
 
     /* Badges (Beispiel) */
     --badge-bg: color-mix(in oklab, var(--color-accent) 20%, transparent);
