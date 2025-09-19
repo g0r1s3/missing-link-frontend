@@ -9,7 +9,7 @@
     user-select: none;
 }
 
-.tb--disabled {
+.tb-disabled {
     cursor: not-allowed;
     opacity: 0.6;
 }
@@ -17,34 +17,40 @@
 /* Visually styled checkbox */
 .tb-input {
     appearance: none;
-    background: transparent;
-    border: 2px solid var(--color-border);
-    border-radius: 4px;
+    background: var(--surface);
+    border-color: var(--border-color);
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    border-width: 2px;
     display: grid;
     height: 1.15rem;
-    margin: 0;
+    /* margin entfernt: harte 0 ist laut Allowed-List nicht zulässig */
     outline: none;
     place-content: center;
     transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
     width: 1.15rem;
 }
 
-.tb-input:hover:not(:disabled) {
-    background: color-mix(in oklab, var(--color-bg) 90%, black 10%);
-    border-color: var(--color-accent);
+/* Wichtig: Reihenfolge — disabled & focus vor hover */
+.tb-input:disabled {
+    opacity: 0.7;
 }
 
 .tb-input:focus-visible {
     border-color: var(--color-accent);
-    box-shadow:
-            0 0 0 3px color-mix(in oklab, var(--color-accent) 30%, transparent),
-            0 2px 8px 0 color-mix(in oklab, var(--shadow) 35%, transparent);
+    box-shadow: var(--focus-ring);
+}
+
+/* Hover-Zustand nur für aktivierbare Elemente */
+.tb-input:hover:not(:disabled) {
+    background: var(--surface);
+    border-color: var(--border-color-strong);
 }
 
 /* Check indicator */
 .tb-input::before {
     background: var(--color-accent);
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     content: '';
     height: 0.6rem;
     transform: scale(0);
@@ -56,20 +62,17 @@
     transform: scale(1);
 }
 
-.tb-input:disabled {
-    opacity: 0.7;
-}
-
-/* Decorative box overlay to enhance contrast on dark/light themes */
-.tb-box { height: 0; /* no extra space */
-    position: absolute; /* taken out of flow but we still keep spacing with input size */
+/* Deko-Box (behält das ursprüngliche Verhalten bei, ohne verbotene Werte) */
+.tb-box {
+    height: 0;           /* kein zusätzlicher Platz */
+    position: absolute;  /* aus dem Flow genommen */
     width: 0;
 }
 
 .tb-text {
     display: inline-flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: var(--space-1);
 }
 
 .tb-label {
