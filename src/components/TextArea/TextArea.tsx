@@ -1,5 +1,4 @@
 // src/components/TextArea/TextArea.tsx
-// @ts-ignore
 import React from 'react';
 import './TextArea.css';
 
@@ -16,7 +15,7 @@ export type TextAreaProps = Omit<
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ id, label, error, helperText, className = '', ...rest }, ref) => {
     return (
-      <div className={`tf-root tf-root--textarea`}>
+      <div className="tf-root tf-root-textarea">
         {label && (
           <label htmlFor={id} className="tf-label">
             {label}
@@ -25,11 +24,11 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <textarea
           id={id}
           ref={ref}
-          className={`tf-input ${error ? 'tf-input--error' : ''} ${className}`}
+          className={`tf-input ${error ? 'tf-input-error' : ''} ${className}`}
           {...rest}
         />
         {(helperText || error) && (
-          <div className={`tf-helper ${error ? 'tf-helper--error' : ''}`}>
+          <div className={`tf-helper ${error ? 'tf-helper-error' : ''}`}>
             {error ?? helperText}
           </div>
         )}

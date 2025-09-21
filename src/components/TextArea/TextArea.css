@@ -1,39 +1,39 @@
 /* src/components/TextArea/TextArea.css */
 
 /* Wrapper auf volle Breite strecken – identisch zu TextField-Verhalten */
-.tf-root.tf-root--textarea {
-  color: var(--color-text);
-  display: flex;
-  flex-direction: column;
-  font-size: 0.95rem;
-  gap: var(--space-2);
-  min-width: 0; /* wichtig in Grid/Flex-Layouts */
-  width: 100%;
+.tf-root.tf-root-textarea {
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    gap: var(--space-2);
+    min-width: 0; /* wichtig in Grid/Flex-Layouts */
+    width: 100%;
 }
 
 /* TextArea selbst: volle Breite und nur vertikal resizebar.
    Basis-Styles (Padding, Border, Hintergrund etc.) kommen von .tf-input aus der TextField-CSS.
    Damit sind Hover/Focus exakt identisch. */
-.tf-root.tf-root--textarea .tf-input {
-  box-sizing: border-box;
-  max-width: 100%;
-  min-height: 8rem;   /* angenehme Anfangshöhe */
-  min-width: 0;
-  resize: vertical;   /* nur nach unten vergrößerbar */
-  width: 100%;
+.tf-root.tf-root-textarea .tf-input {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 8rem;   /* angenehme Anfangshöhe */
+    min-width: 0;
+    resize: vertical;   /* nur nach unten vergrößerbar */
+    width: 100%;
 }
 
 /* Fehlerzustand nutzt die gleichen Utility-Klassen wie das TextField */
-.tf-root.tf-root--textarea .tf-input--error {
-  /* keine Überschreibung der Hover/Focus-Farben – entspricht TextField */
+.tf-root.tf-root-textarea .tf-input-error {
+    /* keine Überschreibung der Hover/Focus-Farben – entspricht TextField */
 }
 
-.tf-root.tf-root--textarea .tf-helper {
-  font-size: 0.8rem;
-  opacity: 0.9;
+.tf-root.tf-root-textarea .tf-helper {
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
-.tf-root.tf-root--textarea .tf-helper--error {
-  /* Farben werden bereits in der bestehenden TextField-CSS definiert.
-     Hier kein Override, damit alles konsistent bleibt. */
+.tf-root.tf-root-textarea .tf-helper-error {
+    /* Farben werden bereits in der bestehenden TextField-CSS definiert.
+       Hier kein Override, damit alles konsistent bleibt. */
 }
