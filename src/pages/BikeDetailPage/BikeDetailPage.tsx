@@ -1,9 +1,9 @@
 // src/pages/BikeDetailPage.tsx
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { getBike, deleteBike, Bike } from '../features/bikes/api'
-import { Button } from '../components'
-import { createMaintenance, getMaintenancesForBike, Maintenance } from '../features/maintenances/api'
+import { getBike, deleteBike, Bike } from '../../features/bikes/api'
+import { Button } from '../../components'
+import { createMaintenance, getMaintenancesForBike, Maintenance } from '../../features/maintenances/api'
 
 const BikeDetailPage: React.FC = () => {
     const { id } = useParams<{ id: string }>()

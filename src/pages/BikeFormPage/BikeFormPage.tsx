@@ -1,8 +1,8 @@
 // src/pages/BikeFormPage.tsx
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { createBike } from '../features/bikes/api'
-import { Button, TextField } from '../components'
+import { createBike } from '../../features/bikes/api'
+import { Button, TextField } from '../../components'
 import './BikeFormPage.css'
 
 type FormState = {

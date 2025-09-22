@@ -1,8 +1,8 @@
 // src/pages/MaintenanceDetailPage.tsx
 import React, { useEffect, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { Button } from '../components'
-import { getMaintenance, deleteMaintenance, Maintenance } from '../features/maintenances/api'
+import { Button } from '../../components'
+import { getMaintenance, deleteMaintenance, Maintenance } from '../../features/maintenances/api'
 
 const MaintenanceDetailPage: React.FC = () => {
     const { id } = useParams<{ id: string }>()

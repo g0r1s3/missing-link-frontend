@@ -1,9 +1,9 @@
 // pages/ProfilePage.tsx
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { getMyBikes } from '../features/bikes/api'
+import { getMyBikes } from '../../features/bikes/api'
 // import { Button } from '../components'
-import BikeListItem, { type Bike } from '../components/BikeListItem'
+import BikeListItem, { type Bike } from '../../components/BikeListItem'
 import './ProfilePage.css'
 
 const ProfilePage: React.FC = () => {

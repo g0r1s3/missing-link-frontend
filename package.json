@@ -18,7 +18,8 @@
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "lint:file": "eslint",
-    "check:component": "bash scripts/check-component.sh"
+    "check:component": "bash scripts/check-component.sh",
+    "check:page": "bash scripts/check-page.sh"
   },
   "dependencies": {
     "react": "^19.1.1",

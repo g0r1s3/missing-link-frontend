@@ -1,8 +1,8 @@
-import Footer from '../components/Footer/Footer'
+import Footer from '../../components/Footer/Footer'
 import { Link } from 'react-router-dom'
-import LPFeature from '../components/LPFeature'
-import LPFAQuestion from '../components/LPFAQuestion'
-import LPContact from '../components/LPContact'
+import LPFeature from '../../components/LPFeature'
+import LPFAQuestion from '../../components/LPFAQuestion'
+import LPContact from '../../components/LPContact'
 import './LandingPage.css'
 
 export default function LandingPage() {
