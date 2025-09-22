@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔎 Running ESLint & Stylelint (pre-push)…"
+npm run lint:js && npm run lint:css
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "❌ Push blocked: Bitte ESLint/Stylelint-Fehler fixen und erneut pushen."
+  exit 1
+fi
+
+echo "✅ Linters passed. Push erlaubt."
