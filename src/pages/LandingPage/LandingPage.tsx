@@ -1,122 +1,81 @@
-import Footer from '../../components/Footer/Footer'
 import { Link } from 'react-router-dom'
-import LPFeature from '../../components/LPFeature'
+
+import Footer from '../../components/Footer/Footer'
 import LPFAQuestion from '../../components/LPFAQuestion'
 import LPContact from '../../components/LPContact'
+import LPFeature from '../../components/LPFeature'
+
 import './LandingPage.css'
 
 export default function LandingPage() {
-    return (
+  return (
     <>
-      {/* ... andere Landingpage-Sektionen ... */}
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100vw', alignSelf: 'stretch' }}>
-            <main className="ml-main" style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem 1rem 2rem', flex: 1 }}>
-                <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                    <h1 style={{ fontSize: '2.25rem', margin: '0 0 0.75rem' }}>
-                        Alle Fahrrad-Dokumente. An einem Ort.
-                    </h1>
-                    <p style={{ maxWidth: 760, margin: '0.5rem auto 1.25rem', color: '#445', fontSize: '1.05rem' }}>
-                        Missing Link ist deine zentrale Plattform für Rechnungen, verbaute Komponenten,
-                        Reparaturen, Kostenvoranschläge und Versicherungen – für Besitzer, Händler,
-                        Werkstätten und Versicherer.
-                    </p>
+      {/* Seiten-Wrapper + Hauptinhalt */}
+      <div className="ml-landing">
+        <main className="ml-main ml-main-container">
+          {/* HERO */}
+          <section className="ml-hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" className="ml-hero-title">
+              Alle Fahrrad-Dokumente. An einem Ort.
+            </h1>
+            <p className="ml-hero-lead">
+              Missing Link ist deine zentrale Plattform für Rechnungen, verbaute Komponenten,
+              Reparaturen, Kostenvoranschläge und Versicherungen – für Besitzer, Händler,
+              Werkstätten und Versicherer.
+            </p>
 
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-                        <Link
-                            to="/demo"
-                            style={{
-                                background: '#154D71',
-                                color: '#fff',
-                                padding: '0.75rem 1rem',
-                                borderRadius: 10,
-                                textDecoration: 'none',
-                                fontWeight: 600,
-                                boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
-                            }}
-                            aria-label="Produkt-Demo starten"
-                        >
-                            Produkt-Demo starten
-                        </Link>
-                        <a
-                            href="#features"
-                            style={{
-                                background: 'transparent',
-                                color: '#154D71',
-                                padding: '0.75rem 1rem',
-                                borderRadius: 10,
-                                textDecoration: 'none',
-                                fontWeight: 600,
-                                border: '1px solid #154D71'
-                            }}
-                        >
-                            Mehr erfahren
-                        </a>
-                    </div>
-                </section>
+            <div className="ml-hero-cta">
+              <Link to="/demo" className="ml-cta ml-cta-primary" aria-label="Produkt-Demo starten">
+                Produkt-Demo starten
+              </Link>
+              <a href="#features" className="ml-cta ml-cta-secondary">
+                Mehr erfahren
+              </a>
+            </div>
+          </section>
 
-                <section id="features" style={{ marginTop: '2rem' }}>
-                    <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Warum Missing Link?</h2>
-                    <div className="ml-features-grid">
-                        <LPFeature
-                            emoji="🧾"
-                            title="Rechnungen & Belege"
-                            description="Digital ablegen, jederzeit auffindbar – keine Zettelwirtschaft mehr."
-                        />
-                        <LPFeature
-                            emoji="🔩"
-                            title="Komponenten-Übersicht"
-                            description="Alle verbauten Teile mit Seriennummern und Historie im Blick."
-                        />
-                        <LPFeature
-                            emoji="🛠️"
-                            title="Reparaturen & Wartung"
-                            description="Eigene Arbeiten oder Werkstatt-Termine dokumentieren – inkl. Kosten."
-                        />
-                        <LPFeature
-                            emoji="📋"
-                            title="Kostenvoranschläge"
-                            description="Angebote vergleichen, freigeben und nachvollziehen."
-                        />
-                        <LPFeature
-                            emoji="🛡️"
-                            title="Versicherungen"
-                            description="Policen, Laufzeiten und Schadenfälle zentral verwalten."
-                        />
-                        <LPFeature
-                            emoji="🤝"
-                            title="Für alle Beteiligten"
-                            description="Besitzer, Händler, Werkstätten und Versicherer auf einer Plattform."
-                        />
-                    </div>
-                </section>
-                {/* FAQ-Sektion */}
-                <section style={{ maxWidth: 900, margin: '3rem auto', padding: '0 1rem' }}>
-                    <h2 style={{ marginBottom: '1rem' }}>Häufige Fragen</h2>
-                    <LPFAQuestion
-                        question="Brauche ich ein Konto?"
-                        answer="Nein, für die Demo nicht. Für die volle Nutzung später schon."
-                        defaultOpen
-                    />
-                    <LPFAQuestion
-                        question="Kann ich jederzeit kündigen?"
-                        answer={<p>Ja, monatlich zum Ende der Laufzeit. Keine Mindestdauer.</p>}
-                    />
-                    <LPFAQuestion
-                        question="Gibt es einen Teamrabatt?"
-                        answer={
-                            <ul>
-                                <li>Ab 5 Nutzer: 10%</li>
-                                <li>Ab 20 Nutzer: 20%</li>
-                            </ul>
-                        }
-                    />
-                </section>
-                {/* Kontakt direkt unter FAQ */}
-                <LPContact />
+          {/* FEATURES */}
+          <section id="features" className="ml-section">
+            <h2 className="ml-section-title">Warum Missing Link?</h2>
+            <div className="ml-features-grid">
+              <LPFeature emoji="🧾" title="Rechnungen & Belege" description="Digital ablegen, jederzeit auffindbar – keine Zettelwirtschaft mehr." />
+              <LPFeature emoji="🔩" title="Komponenten-Übersicht" description="Alle verbauten Teile mit Seriennummern und Historie im Blick." />
+              <LPFeature emoji="🛠️" title="Reparaturen & Wartung" description="Eigene Arbeiten oder Werkstatt-Termine dokumentieren – inkl. Kosten." />
+              <LPFeature emoji="📋" title="Kostenvoranschläge" description="Angebote vergleichen, freigeben und nachvollziehen." />
+              <LPFeature emoji="🛡️" title="Versicherungen" description="Policen, Laufzeiten und Schadenfälle zentral verwalten." />
+              <LPFeature emoji="🤝" title="Für alle Beteiligten" description="Besitzer, Händler, Werkstätten und Versicherer auf einer Plattform." />
+            </div>
+          </section>
 
-            </main>
-        </div>
-        <Footer />
+          {/* FAQ */}
+          <section className="ml-faq-section" aria-labelledby="faq-title">
+            <h2 id="faq-title" className="ml-section-title">Häufige Fragen</h2>
+            <LPFAQuestion
+              question="Brauche ich ein Konto?"
+              answer="Nein, für die Demo nicht. Für die volle Nutzung später schon."
+              defaultOpen
+            />
+            <LPFAQuestion
+              question="Kann ich jederzeit kündigen?"
+              answer={<p>Ja, monatlich zum Ende der Laufzeit. Keine Mindestdauer.</p>}
+            />
+            <LPFAQuestion
+              question="Gibt es einen Teamrabatt?"
+              answer={
+                <ul>
+                  <li>Ab 5 Nutzer: 10%</li>
+                  <li>Ab 20 Nutzer: 20%</li>
+                </ul>
+              }
+            />
+          </section>
+
+          {/* Kontakt */}
+          <LPContact />
+        </main>
+      </div>
+
+      <Footer />
     </>
-    )
+  )
 }

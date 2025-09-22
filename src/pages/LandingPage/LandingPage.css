@@ -1,31 +1,119 @@
-/* Offset für die fixe NavBar, verhindert Überlappung */
+/* Hauptlayout: Abstand unter der (sticky) NavBar + zentrierter Content */
 .ml-main {
-  /* passe den Wert an deine tatsächliche Navbar-Höhe an */
-  --nav-offset: 64px;
-
-  padding-top: var(--nav-offset);
+    padding-top: var(--space-6);
 }
 
-/* Grid für die Feature-Karten: modernes, konsistentes Layout */
+/* optionale zentrierte max-breite (analog Login) */
+.ml-main-container {
+    /* zentriert; ggf. durch Token aus theme.css ersetzen */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    margin-inline: auto;
+    max-width: var(--container-xl);
+    padding-inline: var(--space-4);
+}
+
+/* HERO */
+.ml-hero {
+    display: grid;
+    gap: var(--space-3);
+    justify-items: center;
+    margin-block-end: var(--space-6);
+    text-align: center;
+}
+
+.ml-hero-title {
+    font-size: var(--font-size-600);
+    /* 0 nur per Token erlaubt */
+    margin: var(--space-0);
+}
+
+.ml-hero-lead {
+    /* ggf. auf var(--text-muted) umstellen */
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 70%, transparent);
+    font-size: var(--font-size-400);
+    /* Shorthand mit 0 vermeiden → nur Vars */
+    margin-block: var(--space-2);
+    margin-inline: var(--space-4);
+    max-width: var(--container-md);
+}
+
+.ml-hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+}
+
+/* CTA Buttons */
+.ml-cta {
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    line-height: 1;
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none;
+    transition: background var(--duration-2) var(--ease-standard), border-color var(--duration-2) var(--ease-standard);
+}
+
+.ml-cta-primary {
+    background: var(--btn-primary-bg);
+    /* alphabetisch: box-shadow vor color */
+    box-shadow: var(--shadow-2);
+    color: var(--btn-primary-text);
+}
+
+.ml-cta-primary:active {
+    background: var(--btn-primary-bg-active);
+}
+
+.ml-cta-secondary {
+    /* ggf. var(--btn-secondary-bg) */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    background: transparent;
+    /* ggf. var(--border-accent) */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* Abschnitts-Titel */
+.ml-section-title {
+    font-size: var(--font-size-600);
+    /* kein literal 0 → Longhand */
+    margin-block-end: var(--space-4);
+    margin-block-start: var(--space-0);
+}
+
+/* Features-Grid */
 .ml-features-grid {
-  --grid-gap: var(--space-4, 1rem);
-
-  align-items: stretch;
-  display: grid;
-  gap: var(--grid-gap);
-  grid-auto-flow: row;
-  grid-auto-rows: 1fr; /* gleiche Zeilenhöhen, verhindert “Aufstoßen” */
-  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    align-items: stretch;
+    display: grid;
+    gap: var(--space-4);
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
-/* Verhindert horizontales Überlaufen einzelner Karten (und daraus resultierendes Überlappen) */
 .ml-features-grid > * {
-  min-width: 0;
+    min-width: 0;
 }
 
-/* etwas größere Abstände ab M-Viewport */
 @media (width >= 768px) {
-  .ml-features-grid {
-    --grid-gap: calc(var(--space-4, 1rem) + 0.25rem);
-  }
+    /* bis Tokens vorhanden sind */
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    .ml-features-grid {
+        gap: var(--space-2);
+    }
+}
+
+/* FAQ-Section Abstand */
+.ml-faq-section {
+    margin-block: var(--space-2);
+    margin-inline: var(--space-1);
+    max-width: var(--container-lg);
+    /* zentriert */
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    /* calc() bleibt, bis Token vorhanden */
+    /* stylelint-disable-next-line declaration-property-value-allowed-list, scale-unlimited/declaration-strict-value */
+    padding-inline: var(--space-4);
 }

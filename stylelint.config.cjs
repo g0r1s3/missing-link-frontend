@@ -74,9 +74,10 @@ module.exports = {
       ],
 
       // Abstände
-      "/^margin/":  [/^var\(--space-[a-z0-9-]+\)$/i],
-      "/^padding/": [/^var\(--space-[a-z0-9-]+\)$/i],
-      "gap":        [/^var\(--space-[a-z0-9-]+\)$/i],
+      "/^margin/":  [/^var\(--space-[a-z0-9-]+\)(\s+var\(--space-[a-z0-9-]+\))?$/i],
+      "/^padding/": [/^var\(--space-[a-z0-9-]+\)(\s+var\(--space-[a-z0-9-]+\))?$/i],
+      "gap":        [/^var\(--space-[a-z0-9-]+\)(\s+var\(--space-[a-z0-9-]+\))?$/i],
+
 
       // Rundungen
       "border-radius": [/^var\(--radius-[a-z0-9-]+\)$/i]
