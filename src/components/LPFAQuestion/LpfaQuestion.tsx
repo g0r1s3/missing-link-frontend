@@ -1,6 +1,6 @@
-// src/components/LPFAQuestion/LPFAQuestion.tsx
+// src/components/LpfaQuestion/LpfaQuestion.tsx
 import React, { useEffect, useRef } from 'react'
-import './LPFAQuestion.css'
+import './LpfaQuestion.css'
 
 export type LPFAQuestionProps = {
   question: string | React.ReactNode
@@ -12,7 +12,7 @@ export type LPFAQuestionProps = {
   className?: string
 }
 
-export default function LPFAQuestion({
+export default function LpfaQuestion({
                                        question,
                                        answer,
                                        defaultOpen,

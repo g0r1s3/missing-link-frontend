@@ -1,6 +1,7 @@
 // src/components/NavBar/NavBar.tsx
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import './NavBar.css'
 import Button from '../Button/Button'
 

@@ -3,12 +3,10 @@
 /* Basis */
 .btn {
     align-items: center;
-    background: var(--btn-primary-bg);
     border-color: var(--border-color);
     border-radius: var(--radius-full);
     border-style: solid;
     border-width: 1px;
-    color: var(--btn-primary-text);
     cursor: pointer;
     display: inline-flex;
     font-weight: 600;
@@ -22,10 +20,6 @@
 }
 
 /* States */
-.btn:hover {
-    background: var(--btn-primary-bg-active);
-}
-
 .btn:focus-visible {
     border-color: var(--color-accent);
     box-shadow: var(--focus-ring);
@@ -38,6 +32,15 @@
 }
 
 /* Varianten */
+.btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+}
+
+.btn-primary:hover {
+    background: var(--btn-primary-bg-active);
+}
+
 .btn-ghost {
     background: var(--btn-ghost-bg);
     border-color: var(--color-accent);
@@ -46,5 +49,35 @@
 
 .btn-ghost:hover {
     background: var(--btn-ghost-bg-hover);
+    border-color: var(--border-color-strong);
+}
+
+/* Secondary */
+.btn-secondary {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background: var(--btn-secondary-bg);
+    border-color: var(--panel-border);
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: var(--btn-secondary-text);
+}
+
+.btn-secondary:hover {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background: var(--btn-secondary-bg-active);
+    border-color: var(--border-color-strong);
+}
+
+/* Danger */
+.btn-danger {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background: var(--btn-danger-bg);
+    border-color: var(--color-error);
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: var(--btn-danger-text);
+}
+
+.btn-danger:hover {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background: var(--btn-danger-bg-active);
     border-color: var(--border-color-strong);
 }

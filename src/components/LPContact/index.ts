@@ -1,2 +1,2 @@
-// src/components/LPContact/index.ts
-export { default } from './LPContact'
+// src/components/LpContact/index.ts
+export { default } from './LpContact'

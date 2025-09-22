@@ -1,2 +1,2 @@
-export { default } from './LPFAQuestion'
-export type { LPFAQuestionProps } from './LPFAQuestion'
+export { default } from './LpfaQuestion'
+export type { LPFAQuestionProps } from './LpfaQuestion'

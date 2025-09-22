@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 
 import Footer from '../../components/Footer/Footer'
-import LPFAQuestion from '../../components/LPFAQuestion'
-import LPContact from '../../components/LPContact'
-import LPFeature from '../../components/LPFeature'
+import LpContact from '../../components/LPContact'
+import LpfaQuestion from '../../components/LPFAQuestion'
+import LpFeature from '../../components/LPFeature'
+
 
 import './LandingPage.css'
 
@@ -38,28 +39,28 @@ export default function LandingPage() {
           <section id="features" className="ml-section">
             <h2 className="ml-section-title">Warum Missing Link?</h2>
             <div className="ml-features-grid">
-              <LPFeature emoji="🧾" title="Rechnungen & Belege" description="Digital ablegen, jederzeit auffindbar – keine Zettelwirtschaft mehr." />
-              <LPFeature emoji="🔩" title="Komponenten-Übersicht" description="Alle verbauten Teile mit Seriennummern und Historie im Blick." />
-              <LPFeature emoji="🛠️" title="Reparaturen & Wartung" description="Eigene Arbeiten oder Werkstatt-Termine dokumentieren – inkl. Kosten." />
-              <LPFeature emoji="📋" title="Kostenvoranschläge" description="Angebote vergleichen, freigeben und nachvollziehen." />
-              <LPFeature emoji="🛡️" title="Versicherungen" description="Policen, Laufzeiten und Schadenfälle zentral verwalten." />
-              <LPFeature emoji="🤝" title="Für alle Beteiligten" description="Besitzer, Händler, Werkstätten und Versicherer auf einer Plattform." />
+              <LpFeature emoji="🧾" title="Rechnungen & Belege" description="Digital ablegen, jederzeit auffindbar – keine Zettelwirtschaft mehr." />
+              <LpFeature emoji="🔩" title="Komponenten-Übersicht" description="Alle verbauten Teile mit Seriennummern und Historie im Blick." />
+              <LpFeature emoji="🛠️" title="Reparaturen & Wartung" description="Eigene Arbeiten oder Werkstatt-Termine dokumentieren – inkl. Kosten." />
+              <LpFeature emoji="📋" title="Kostenvoranschläge" description="Angebote vergleichen, freigeben und nachvollziehen." />
+              <LpFeature emoji="🛡️" title="Versicherungen" description="Policen, Laufzeiten und Schadenfälle zentral verwalten." />
+              <LpFeature emoji="🤝" title="Für alle Beteiligten" description="Besitzer, Händler, Werkstätten und Versicherer auf einer Plattform." />
             </div>
           </section>
 
           {/* FAQ */}
           <section className="ml-faq-section" aria-labelledby="faq-title">
             <h2 id="faq-title" className="ml-section-title">Häufige Fragen</h2>
-            <LPFAQuestion
+            <LpfaQuestion
               question="Brauche ich ein Konto?"
               answer="Nein, für die Demo nicht. Für die volle Nutzung später schon."
               defaultOpen
             />
-            <LPFAQuestion
+            <LpfaQuestion
               question="Kann ich jederzeit kündigen?"
               answer={<p>Ja, monatlich zum Ende der Laufzeit. Keine Mindestdauer.</p>}
             />
-            <LPFAQuestion
+            <LpfaQuestion
               question="Gibt es einen Teamrabatt?"
               answer={
                 <ul>
@@ -71,7 +72,7 @@ export default function LandingPage() {
           </section>
 
           {/* Kontakt */}
-          <LPContact />
+          <LpContact />
         </main>
       </div>
 

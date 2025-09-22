@@ -1,3 +1,3 @@
-// components/LPFeature/index.ts
-export { default } from './LPFeature'
-export type { LPFeatureProps } from './LPFeature'
+// components/LpFeature/index.ts
+export { default } from './LpFeature'
+export type { LPFeatureProps } from './LpFeature'

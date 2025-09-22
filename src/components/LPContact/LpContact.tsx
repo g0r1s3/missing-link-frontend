@@ -1,10 +1,10 @@
-// src/components/LPContact/LPContact.tsx
+// src/components/LpContact/LpContact.tsx
 import React, { useState } from 'react'
-import './LPContact.css'
+import './LpContact.css'
 
 import { TextField, Button, TextArea } from '../' // aus dem Komponenten-Index
 
-function LPContact() {
+function LpContact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -72,4 +72,4 @@ function LPContact() {
   )
 }
 
-export default LPContact
+export default LpContact

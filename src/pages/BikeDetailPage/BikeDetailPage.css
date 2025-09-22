@@ -1,0 +1,219 @@
+/* src/pages/BikeDetailPage/BikeDetailPage.css */
+
+/* Seite */
+.bdp-page {
+    /* zentrieren */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    margin-inline: auto;
+    max-width: var(--container-lg);
+    /* 2rem 1rem -> Tokens */
+    padding-block: var(--space-5);
+    padding-inline: var(--space-4);
+}
+
+
+/* Header */
+.bdp-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: var(--space-4);
+}
+
+.bdp-title {
+    color: var(--panel-text);
+    margin: var(--space-0);
+}
+
+.bdp-linkreset {
+    text-decoration: none;
+}
+
+
+/* Textzustände */
+.bdp-text {
+    margin: var(--space-0);
+}
+
+.bdp-text-muted {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 70%, black);
+}
+
+.bdp-text-error {
+    color: var(--color-accent);
+}
+
+
+/* Karten */
+.bdp-card {
+    background: var(--panel-bg);
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-2);
+    color: var(--panel-text);
+    padding: var(--space-4);
+}
+
+.bdp-card-grid {
+    display: grid;
+    gap: var(--space-2);
+}
+
+
+/* Aktionen */
+.bdp-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-block-start: var(--space-2);
+}
+
+.bdp-actions-right {
+    justify-content: flex-end;
+}
+
+
+/* Abschnitt Wartungen */
+.bdp-section {
+    margin-block-start: var(--space-6);
+}
+
+.bdp-section-title {
+    color: var(--panel-text);
+    margin-block-end: var(--space-2);
+    margin-block-start: var(--space-0);
+}
+
+
+/* Empty */
+.bdp-empty {
+    background: var(--panel-bg);
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-1);
+    color: var(--panel-text);
+    margin-block-end: var(--space-3);
+    padding: var(--space-4);
+}
+
+.bdp-empty-text {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 70%, black);
+    margin: var(--space-0);
+}
+
+
+/* Liste der Wartungen */
+.bdp-list {
+    display: grid;
+    gap: var(--space-3);
+    list-style: none;
+    margin: var(--space-0);
+    padding: var(--space-0);
+}
+
+.bdp-listitem {
+    background: var(--panel-bg);
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-1);
+    color: var(--panel-text);
+    display: block;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+    text-decoration: none;
+}
+
+.bdp-listitem:hover,
+.bdp-listitem:focus,
+.bdp-listitem:active,
+.bdp-listitem:visited {
+    color: var(--panel-text);
+    text-decoration: none;
+}
+
+.bdp-listitem:hover {
+    border-color: var(--border-color-strong);
+    box-shadow: var(--shadow-2);
+}
+
+.bdp-listitem-row {
+    align-items: center;
+    display: flex;
+    gap: var(--space-4);
+    justify-content: space-between;
+}
+
+.bdp-listitem-title {
+    font-weight: 600;
+    margin: var(--space-0);
+}
+
+.bdp-listitem-meta {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 75%, black);
+    font-size: var(--font-size-300);
+    margin-block-end: var(--space-0);
+    margin-block-start: var(--space-1);
+}
+
+.bdp-listitem-cta {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 75%, black);
+    white-space: nowrap;
+}
+
+
+/* Formular */
+.bdp-formwrap {
+    margin-block-start: var(--space-5);
+}
+
+.bdp-form-title {
+    margin-block-end: var(--space-2);
+    margin-block-start: var(--space-0);
+}
+
+.bdp-form {
+    box-shadow: var(--shadow-2);
+    display: grid;
+    gap: var(--space-3);
+}
+
+.bdp-label {
+    display: grid;
+    gap: var(--space-1);
+}
+
+.bdp-input,
+.bdp-textarea {
+    /* diese beiden verwenden dedizierte Input-Tokens aus theme.css */
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    background: var(--input-bg);
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: var(--input-text);
+    padding-block: var(--space-2);
+    padding-inline: var(--space-3);
+    width: 100%;
+}
+
+
+.bdp-textarea {
+    resize: vertical;
+}
+
+.bdp-checkrow {
+    align-items: center;
+    display: flex;
+    gap: var(--space-2);
+}
+
+.bdp-checkbox {
+    /* Checkbox bleibt nativ */
+}

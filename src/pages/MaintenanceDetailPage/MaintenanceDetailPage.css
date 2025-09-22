@@ -1,0 +1,67 @@
+/* src/pages/MaintenanceDetailPage/MaintenanceDetailPage.css */
+
+/* Seite */
+.mdp-page {
+    /* zentrieren */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    margin-inline: auto;
+    max-width: var(--container-lg);
+    padding-block: var(--space-5);
+    padding-inline: var(--space-4);
+}
+
+
+/* Header */
+.mdp-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: var(--space-4);
+}
+
+.mdp-title {
+    color: var(--panel-text);
+    margin: var(--space-0);
+}
+
+.mdp-linkreset {
+    text-decoration: none;
+}
+
+
+/* Textzustände */
+.mdp-text {
+    margin: var(--space-0);
+}
+
+.mdp-text-muted {
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 70%, black);
+}
+
+.mdp-text-error {
+    color: var(--color-accent);
+}
+
+
+/* Karte (Details) */
+.mdp-card {
+    background: var(--panel-bg);
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-2);
+    color: var(--panel-text);
+    padding: var(--space-4);
+}
+
+.mdp-card-grid {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.mdp-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-block-start: var(--space-2);
+}

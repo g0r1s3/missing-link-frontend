@@ -12,6 +12,7 @@
     --shadow: #0a1f2b;            /* darkened bg for shadows */
 
     /* Spacing & Radii (bestehend + erweitert) */
+    --space-auto: auto;
     --space-0: 0;
     --space-1: 0.25rem;
     --space-2: 0.5rem;
@@ -120,6 +121,16 @@
     --btn-primary-text: #fff;
     --btn-ghost-bg: transparent;
     --btn-ghost-bg-hover: transparent; /* oder ein leichtes Panel: var(--panel-bg) */
+
+    /* Buttons (Secondary) */
+    --btn-secondary-bg: var(--panel-bg);
+    --btn-secondary-bg-active: color-mix(in oklab, var(--panel-bg) 85%, black);
+    --btn-secondary-text: var(--panel-text);
+
+    /* Buttons (Danger) */
+    --btn-danger-bg: var(--color-error);
+    --btn-danger-bg-active: color-mix(in oklab, var(--color-error) 85%, black);
+    --btn-danger-text: #fff;
 
     /* Links */
     --link: var(--color-accent);

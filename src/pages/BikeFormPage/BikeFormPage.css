@@ -5,22 +5,26 @@
 /* Layout */
 .page-constrained {
     background: var(--color-accent-dark); /* Hintergrund aus theme.css */
-    border-radius: var(--radius-lg, 16px);
-    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    /* zentrieren */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    margin-inline: auto;
     max-width: 720px;
-    padding: 2rem 1rem;
+    /* 2rem 1rem -> Tokens */
+    padding-block: var(--space-5);
+    padding-inline: var(--space-4);
 }
 
 .page-header {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-block-end: var(--space-4);
 }
 
 .page-title {
-    color: var(--panel-text, #0f172a);
-    margin: 0;
+    color: var(--panel-text);
+    margin: var(--space-0);
 }
 
 .link-reset {
@@ -29,21 +33,23 @@
 
 /* Card / Form */
 .card {
-    background: var(--color-accent-dark, #fff);
-    border: 1px solid var(--color-border, rgb(15 23 42 / 12%));
-    border-radius: 12px;
-    color: var(--panel-text, #0f172a);
-    padding: 1rem;
+    background: var(--color-accent-dark);
+    /* bis eigener Border-Token existiert, gezielt erlauben */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--panel-text);
+    padding: var(--space-4);
 }
 
 .form-grid {
     display: grid;
-    gap: 0.75rem;
+    gap: var(--space-3);
 }
 
 .grid-2 {
     display: grid;
-    gap: 0.75rem;
+    gap: var(--space-3);
     grid-template-columns: 1fr 1fr;
 }
 
@@ -57,11 +63,13 @@
 .input,
 .textfield,
 .text-input {
-    background: var(--panel-bg, #fff);
-    border: 1px solid var(--color-border, rgb(15 23 42 / 18%));
-    border-radius: 8px;
-    color: inherit;
-    padding: 0.5rem 0.6rem;
+    background: var(--panel-bg);
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--panel-text);
+    padding-block: var(--space-2);
+    padding-inline: var(--space-3);
     width: 100%;
 }
 
@@ -69,18 +77,20 @@
 .textfield-label {
     display: block;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-block-end: var(--space-1);
 }
 
 /* Feedback */
 .form-error {
-    color: var(--color-accent, #33A1E0);
-    margin: 0.5rem 0 0.75rem;
+    color: var(--color-accent);
+    margin-block-end: var(--space-3);
+    margin-block-start: var(--space-2);
+    margin-inline: var(--space-0);
 }
 
 /* Actions */
 .button-row {
     display: flex;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
+    gap: var(--space-3);
+    margin-block-start: var(--space-2);
 }

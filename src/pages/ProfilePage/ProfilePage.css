@@ -93,7 +93,7 @@
     padding: var(--space-0);
 }
 
-/* Bike-Item – am LPFeature-Schema orientiert, ohne Animation/Underline */
+/* Bike-Item – am LpFeature-Schema orientiert, ohne Animation/Underline */
 .ml-bikeitem {
     /* stylelint-disable-next-line declaration-property-value-allowed-list */
     background: color-mix(in oklab, var(--color-bg) 92%, var(--color-text) 8%);

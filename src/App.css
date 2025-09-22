@@ -18,7 +18,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5;
-    margin: 0;
+    margin: var(--space-0);
 }
 
 #root {
@@ -34,7 +34,7 @@ body {
   min-height: 100dvh;
 }
 
-.ml-app__main {
+.ml-app-main {
   flex: 1;
 }
 
@@ -68,7 +68,7 @@ button {
 
 /* Utility-Container für Seiteninhalte (optional nutzbar) */
 .ml-container {
-    margin: 0 auto;
+    margin: var(--space-0) var(--space-auto);
     max-width: 1200px;
     padding-left: var(--space-4);
     padding-right: var(--space-4);
@@ -77,4 +77,26 @@ button {
 /* Konsistentes Spacing für Sections (optional) */
 section {
     scroll-margin-top: 72px; /* angenehmes Springen bei Ankern */
+}
+
+/* --- Demo-Route Layout (ersetzt frühere Inline-Styles) --- */
+.demo {
+    /* zentrieren */
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
+    margin-inline: auto;
+    max-width: var(--container-lg);
+    padding-block-end: var(--space-4);
+    padding-block-start: var(--space-6);
+    padding-inline: var(--space-4);
+}
+
+.demo-title {
+    margin-block-end: var(--space-2);
+}
+
+.demo-lead {
+    /* gedämpfter Textton */
+    /* stylelint-disable-next-line declaration-property-value-allowed-list */
+    color: color-mix(in oklab, var(--on-surface) 70%, black);
+    margin: var(--space-0);
 }

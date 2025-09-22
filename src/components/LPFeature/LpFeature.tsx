@@ -1,6 +1,6 @@
-// components/LPFeature/LPFeature.tsx
+// components/LpFeature/LpFeature.tsx
 import React from 'react'
-import './LPFeature.css'
+import './LpFeature.css'
 
 export type LPFeatureProps = {
   emoji: string
@@ -11,7 +11,7 @@ export type LPFeatureProps = {
   href?: string // nur relevant, wenn as="a"
 }
 
-export default function LPFeature({
+export default function LpFeature({
                                     emoji,
                                     title,
                                     description,
