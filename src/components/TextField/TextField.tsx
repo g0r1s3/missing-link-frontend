@@ -14,6 +14,8 @@ export default function TextField({
                                     helperText,
                                     className,
                                     id,
+                                    // neu: explizit unterstützen wir text | number | date
+                                    type = 'text',
                                     ...rest
                                   }: TextFieldProps) {
   const inputId =
@@ -23,10 +25,33 @@ export default function TextField({
     .filter(Boolean)
     .join(' ')
 
+  // Zusätzliche Attribute je Typ:
+  const typeSpecificProps: InputHTMLAttributes<HTMLInputElement> =
+    type === 'number'
+      ? {
+          inputMode: 'decimal',        // bessere Mobile-Tastatur
+          // range & step werden bereits via ...rest (min, max, step) unterstützt
+        }
+      : type === 'date'
+        ? {
+            // Europäische Darstellung/Picker
+            lang: 'de-DE',
+            inputMode: 'numeric',
+            placeholder: (rest.placeholder as string) ?? 'TT.MM.JJJJ',
+          }
+        : {}
+
   return (
     <label className="tf-root" htmlFor={inputId}>
       {label && <span className="tf-label">{label}</span>}
-      <input id={inputId} className={cls} type="text" {...rest} />
+      <input
+        id={inputId}
+        className={cls}
+        type={type}
+        // Hinweis: min, max, step etc. kommen aus ...rest
+        {...typeSpecificProps}
+        {...rest}
+      />
       {(helperText || error) && (
         <span className={error ? 'tf-helper tf-helper-error' : 'tf-helper'}>
           {error || helperText}

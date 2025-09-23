@@ -53,6 +53,19 @@ const BikeFormPage: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target
+
+    // EU-Format DD.MM.YYYY → in ISO YYYY-MM-DD umwandeln (API erwartet ISO)
+    if (name === 'purchase_date') {
+      const eu = value.trim()
+      const m = eu.match(/^(\d{2})\.(\d{2})\.(\d{4})$/)
+      if (m) {
+        const [, dd, mm, yyyy] = m
+        const iso = `${yyyy}-${mm}-${dd}`
+        setForm((f) => ({ ...f, purchase_date: iso }))
+        return
+      }
+    }
+
     setForm((f) => ({ ...f, [name]: value }))
   }
 
@@ -190,15 +203,19 @@ const BikeFormPage: React.FC = () => {
             label="Kaufdatum"
             name="purchase_date"
             type="date"
+            // Browser-UI im deutschen Format; Wert bleibt ISO (YYYY-MM-DD)
+            lang="de-DE"
+            placeholder="TT.MM.JJJJ"
             value={form.purchase_date}
             onChange={onChange}
-            placeholder="YYYY-MM-DD"
           />
           <TextField
             label="Gewicht (kg)"
             name="weight_kg"
             type="number"
-            step="0.01"
+            step="0.1"
+            min="0"
+            max="40"
             value={form.weight_kg}
             onChange={onChange}
             placeholder="z. B. 8.5"

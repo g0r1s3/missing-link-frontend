@@ -1,16 +1,17 @@
 // pages/ProfilePage.tsx
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
+import { Button } from '../../components'
 import BikeListItem, { type Bike } from '../../components/BikeListItem'
 import { getMyBikes } from '../../features/bikes/api'
-
 import './ProfilePage.css'
 
 const ProfilePage: React.FC = () => {
   const [bikes, setBikes] = React.useState<Bike[]>([])
   const [loading, setLoading] = React.useState<boolean>(true)
   const [error, setError] = React.useState<string | null>(null)
+  const navigate = useNavigate()
 
   React.useEffect(() => {
     let alive = true
@@ -41,9 +42,14 @@ const ProfilePage: React.FC = () => {
       <section className="ml-section">
         <header className="ml-section-header">
           <h2 className="ml-section-title">Meine Fahrzeuge</h2>
-          <Link to="/bikes/new" className="ml-addlink" role="button" aria-label="Neues Fahrzeug hinzufügen">
+          <Button
+            variant="primary"
+            className="ml-addlink"
+            aria-label="Neues Fahrzeug hinzufügen"
+            onClick={() => navigate('/bikes/new')}
+          >
             Fahrzeug hinzufügen
-          </Link>
+          </Button>
         </header>
 
         {loading && <p className="ml-text-muted">Lade Fahrzeuge…</p>}

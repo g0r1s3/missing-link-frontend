@@ -19,12 +19,13 @@
     appearance: none;
     background: var(--surface);
     border-color: var(--border-color);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     border-style: solid;
-    border-width: 2px;
+    border-width: var(--space-1);
     display: grid;
     height: 1.15rem;
     /* margin entfernt: harte 0 ist laut Allowed-List nicht zulässig */
+    margin: var(--space-2) var(--space-3);
     outline: none;
     place-content: center;
     transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
@@ -50,7 +51,6 @@
 /* Check indicator */
 .tb-input::before {
     background: var(--color-accent);
-    border-radius: var(--radius-sm);
     content: '';
     height: 0.6rem;
     transform: scale(0);
@@ -83,4 +83,10 @@
     font-size: 0.82rem;
     line-height: 1.1;
     opacity: 0.9;
+}
+
+label.tb {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
 }

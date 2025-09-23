@@ -14,12 +14,16 @@
     /* Spacing & Radii (bestehend + erweitert) */
     --space-auto: auto;
     --space-0: 0;
-    --space-1: 0.25rem;
+    --space-1: 1px;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
     --space-4: 1rem;
     --space-5: 1.25rem;
     --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+    --space-9: 2.25rem;
+    --space-10: 2.5rem;
 
     --radius-xs: 4px;
     --radius-sm: 8px;
@@ -259,3 +263,269 @@ html, body {
     transition: background var(--duration-2) var(--ease-standard);
 }
 .u-btn--primary:active { background: var(--btn-primary-bg-active); }
+
+
+/*Alternatives Theme:*/
+
+/* src/styles/theme.css */
+
+/* ===== Core Palette (dark-first) ===== */
+/*:root {*/
+/*    !* Palette *!*/
+/*    --color-bg: #273F4F;          !* dunkles Blau-Grau *!*/
+/*    --color-text: #D7D7D7;        !* neutrales Hellgrau *!*/
+/*    --color-accent: #FE7743;      !* kräftiges Orange *!*/
+/*    --color-accent-dark: #447D9B; !* tiefes Blau für Hover/Active *!*/
+/*    --color-border: #447D9B;*/
+/*    --color-error: #d33;          !* Fehlerfarbe bleibt konsistent *!*/
+/*    --shadow: #273F4F;            !* dunkles Blau-Grau für Schatten *!*/
+
+/*    !* Spacing & Radii *!*/
+/*    --space-auto: auto;*/
+/*    --space-0: 0;*/
+/*    --space-1: 1px;*/
+/*    --space-2: 0.5rem;*/
+/*    --space-3: 0.75rem;*/
+/*    --space-4: 1rem;*/
+/*    --space-5: 1.25rem;*/
+/*    --space-6: 1.5rem;*/
+/*    --space-7: 1.75rem;*/
+/*    --space-8: 2rem;*/
+/*    --space-9: 2.25rem;*/
+/*    --space-10: 2.5rem;*/
+
+/*    --radius-xs: 4px;*/
+/*    --radius-sm: 8px;*/
+/*    --radius-md: 12px;*/
+/*    --radius-lg: 16px;*/
+/*    --radius-xl: 20px;*/
+/*    --radius-full: 9999px;*/
+
+/*    !* ===== Typografie ===== *!*/
+/*    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";*/
+/*    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";*/
+/*    --font-size-100: 12px;*/
+/*    --font-size-200: 14px;*/
+/*    --font-size-300: 16px;*/
+/*    --font-size-400: 18px;*/
+/*    --font-size-500: 20px;*/
+/*    --font-size-600: 24px;*/
+/*    --line-tight: 1.3;*/
+/*    --line-regular: 1.5;*/
+/*    --weight-regular: 400;*/
+/*    --weight-medium: 500;*/
+/*    --weight-semibold: 600;*/
+/*    --weight-bold: 700;*/
+
+/*    !* ===== Layout / Container / Breakpoints ===== *!*/
+/*    --container-sm: 640px;*/
+/*    --container-md: 768px;*/
+/*    --container-lg: 1024px;*/
+/*    --container-xl: 1280px;*/
+/*    --bp-sm: 640px;*/
+/*    --bp-md: 768px;*/
+/*    --bp-lg: 1024px;*/
+/*    --bp-xl: 1280px;*/
+
+/*    !* ===== Z-Index Leitplanken ===== *!*/
+/*    --z-base: 0;*/
+/*    --z-sticky: 100;*/
+/*    --z-dropdown: 200;*/
+/*    --z-nav: 300;*/
+/*    --z-overlay: 400;*/
+/*    --z-modal: 500;*/
+/*    --z-toast: 600;*/
+
+/*    !* ===== Shadow / Elevation ===== *!*/
+/*    --shadow-0: none;*/
+/*    --shadow-1: 0 1px 2px color-mix(in oklab, var(--shadow) 60%, transparent);*/
+/*    --shadow-2: 0 4px 10px color-mix(in oklab, var(--shadow) 55%, transparent);*/
+/*    --shadow-3: 0 10px 20px color-mix(in oklab, var(--shadow) 50%, transparent);*/
+
+/*    !* ===== Semantik: Oberflächen ===== *!*/
+/*    --surface: var(--color-bg);*/
+/*    --on-surface: var(--color-text);*/
+
+/*    !* Panels / Cards / Inputs *!*/
+/*    --panel-bg: #314a5c;*/
+/*    --panel-text: var(--color-text);*/
+/*    --panel-border: color-mix(in oklab, var(--color-text) 15%, transparent);*/
+/*    --panel-shadow: var(--shadow-1);*/
+
+/*    !* Akzent-Kontrast *!*/
+/*    --on-accent: #fff;*/
+
+/*    !* Neutralere Border *!*/
+/*    --border-color: color-mix(in oklab, var(--color-text) 15%, transparent);*/
+/*    --border-color-strong: color-mix(in oklab, var(--color-text) 25%, transparent);*/
+
+/*    !* ===== Statusfarben ===== *!*/
+/*    --color-success: #22c55e;*/
+/*    --color-warning: #eab308;*/
+/*    --color-info: #38bdf8;*/
+/*    --on-success: #071b0e;*/
+/*    --on-warning: #2a2305;*/
+/*    --on-info: #06141a;*/
+
+/*    !* ===== Interaction / Motion ===== *!*/
+/*    --focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-accent) 40%, transparent);*/
+/*    --duration-1: 120ms;*/
+/*    --duration-2: 200ms;*/
+/*    --duration-3: 300ms;*/
+/*    --ease-standard: cubic-bezier(.2, .0, .2, 1);*/
+/*    --ease-emphasized: cubic-bezier(.2, .0, 0, 1);*/
+/*    --opacity-50: 0.5;*/
+/*    --opacity-75: 0.75;*/
+
+/*    !* ===== Overlay / Scrim ===== *!*/
+/*    --scrim: color-mix(in oklab, var(--surface) 70%, black);*/
+
+/*    !* ===== Komponenten-Semantik ===== *!*/
+/*    --input-bg: var(--panel-bg);*/
+/*    --input-text: var(--panel-text);*/
+/*    --input-border: var(--panel-border);*/
+/*    --input-border-hover: color-mix(in oklab, var(--color-text) 25%, transparent);*/
+/*    --input-border-focus: var(--color-accent);*/
+/*    --input-shadow-focus: var(--focus-ring);*/
+/*    --input-placeholder: color-mix(in oklab, var(--panel-text) 55%, transparent);*/
+
+/*    !* Buttons *!*/
+/*    --btn-primary-bg: var(--color-accent);*/
+/*    --btn-primary-bg-active: var(--color-accent-dark);*/
+/*    --btn-primary-text: #fff;*/
+
+/*    --btn-secondary-bg: var(--panel-bg);*/
+/*    --btn-secondary-bg-active: color-mix(in oklab, var(--panel-bg) 85%, black);*/
+/*    --btn-secondary-text: var(--panel-text);*/
+
+/*    --btn-danger-bg: var(--color-error);*/
+/*    --btn-danger-bg-active: color-mix(in oklab, var(--color-error) 85%, black);*/
+/*    --btn-danger-text: #fff;*/
+
+/*    --btn-ghost-bg: transparent;*/
+/*    --btn-ghost-bg-hover: var(--panel-bg);*/
+
+/*    !* Links *!*/
+/*    --link: var(--color-accent);*/
+/*    --link-hover: var(--color-accent-dark);*/
+
+/*    --footer-link-bg: transparent;*/
+/*    --footer-link-bg-hover: var(--panel-bg);*/
+
+/*    !* Badges *!*/
+/*    --badge-bg: color-mix(in oklab, var(--color-accent) 20%, transparent);*/
+/*    --badge-text: var(--color-text);*/
+/*}*/
+
+/*!* ===== Light Theme ===== *!*/
+/*:root[data-theme="light"] {*/
+/*    --color-bg: #D7D7D7;*/
+/*    --color-text: #273F4F;*/
+/*    --color-accent: #447D9B;*/
+/*    --color-accent-dark: #FE7743;*/
+/*    --color-border: #447D9B;*/
+/*    --shadow: #a9a9a9;*/
+
+/*    --surface: var(--color-bg);*/
+/*    --on-surface: var(--color-text);*/
+
+/*    --panel-bg: #f5f5f5;*/
+/*    --panel-text: var(--color-text);*/
+/*    --panel-border: color-mix(in oklab, #000 18%, transparent);*/
+/*    --panel-shadow: var(--shadow-1);*/
+
+/*    --on-accent: #fff;*/
+
+/*    --border-color: color-mix(in oklab, #000 18%, transparent);*/
+/*    --border-color-strong: color-mix(in oklab, #000 28%, transparent);*/
+
+/*    --focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);*/
+
+/*    --input-bg: var(--panel-bg);*/
+/*    --input-text: var(--panel-text);*/
+/*    --input-border: var(--panel-border);*/
+/*    --input-border-hover: color-mix(in oklab, #000 28%, transparent);*/
+/*    --input-border-focus: var(--color-accent);*/
+/*    --input-shadow-focus: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);*/
+
+/*    --link: var(--color-accent);*/
+/*    --link-hover: var(--color-accent-dark);*/
+/*}*/
+
+/*!* ===== System Preference ===== *!*/
+/*@media (prefers-color-scheme: light) {*/
+/*    :root:not([data-theme]) {*/
+/*        --color-bg: #D7D7D7;*/
+/*        --color-text: #273F4F;*/
+/*        --color-accent: #447D9B;*/
+/*        --color-accent-dark: #FE7743;*/
+/*        --color-border: #447D9B;*/
+/*        --shadow: #a9a9a9;*/
+
+/*        --surface: var(--color-bg);*/
+/*        --on-surface: var(--color-text);*/
+
+/*        --panel-bg: #f5f5f5;*/
+/*        --panel-text: var(--color-text);*/
+/*        --panel-border: color-mix(in oklab, #000 18%, transparent);*/
+/*        --panel-shadow: var(--shadow-1);*/
+
+/*        --on-accent: #fff;*/
+/*        --border-color: color-mix(in oklab, #000 18%, transparent);*/
+/*        --border-color-strong: color-mix(in oklab, #000 28%, transparent);*/
+/*        --focus-ring: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);*/
+
+/*        --input-bg: var(--panel-bg);*/
+/*        --input-text: var(--panel-text);*/
+/*        --input-border: var(--panel-border);*/
+/*        --input-border-hover: color-mix(in oklab, #000 28%, transparent);*/
+/*        --input-border-focus: var(--color-accent);*/
+/*        --input-shadow-focus: 0 0 0 3px color-mix(in oklab, var(--color-accent) 35%, transparent);*/
+
+/*        --link: var(--color-accent);*/
+/*        --link-hover: var(--color-accent-dark);*/
+/*    }*/
+/*}*/
+
+/*!* ===== Basis-Anwendungen ===== *!*/
+/*html, body {*/
+/*    background: var(--surface);*/
+/*    color: var(--on-surface);*/
+/*    font-family: var(--font-sans);*/
+/*    font-size: var(--font-size-300);*/
+/*    line-height: var(--line-regular);*/
+/*}*/
+
+/*:focus-visible {*/
+/*    outline: none;*/
+/*    box-shadow: var(--focus-ring);*/
+/*    border-radius: 6px;*/
+/*}*/
+
+/*!* ===== Utilities ===== *!*/
+/*.u-card {*/
+/*    background: var(--panel-bg);*/
+/*    color: var(--panel-text);*/
+/*    border: 1px solid var(--panel-border);*/
+/*    border-radius: var(--radius-md);*/
+/*    box-shadow: var(--panel-shadow);*/
+/*}*/
+
+/*.u-input {*/
+/*    background: var(--input-bg);*/
+/*    color: var(--input-text);*/
+/*    border: 1px solid var(--input-border);*/
+/*    border-radius: var(--radius-sm);*/
+/*    transition: border-color var(--duration-2) var(--ease-standard), box-shadow var(--duration-2) var(--ease-standard);*/
+/*}*/
+/*.u-input:hover { border-color: var(--input-border-hover); }*/
+/*.u-input:focus { border-color: var(--input-border-focus); box-shadow: var(--input-shadow-focus); }*/
+/*.u-input::placeholder { color: var(--input-placeholder); }*/
+
+/*.u-btn--primary {*/
+/*    background: var(--btn-primary-bg);*/
+/*    color: var(--btn-primary-text);*/
+/*    border-radius: var(--radius-sm);*/
+/*    transition: background var(--duration-2) var(--ease-standard);*/
+/*}*/
+/*.u-btn--primary:active { background: var(--btn-primary-bg-active); }*/

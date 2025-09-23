@@ -4,7 +4,7 @@
 
 /* Layout */
 .page-constrained {
-    background: var(--color-accent-dark); /* Hintergrund aus theme.css */
+    background: var(--color-bg); /* Hintergrund aus theme.css */
     border-radius: var(--radius-lg);
     /* zentrieren */
     /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
@@ -33,12 +33,13 @@
 
 /* Card / Form */
 .card {
-    background: var(--color-accent-dark);
+    background: var(--color-bg);
     /* bis eigener Border-Token existiert, gezielt erlauben */
     /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     color: var(--panel-text);
+    margin: var(--space-5);
     padding: var(--space-4);
 }
 
@@ -63,7 +64,7 @@
 .input,
 .textfield,
 .text-input {
-    background: var(--panel-bg);
+    background: var(--scrim);
     /* stylelint-disable-next-line scale-unlimited/declaration-strict-value, declaration-property-value-allowed-list */
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);

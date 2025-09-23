@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 echo "🔎 Running ESLint & Stylelint (pre-push)…"
 npm run lint:js && npm run lint:css
 status=$?
