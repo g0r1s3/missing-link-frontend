@@ -42,31 +42,34 @@
 
 /* Icon Container */
 .ml-faq-icon {
+    align-items: center;
+    display: inline-flex;
+    height: 1.25rem;
+    justify-content: center;
     position: relative;
     width: 1.25rem;
-    height: 1.25rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Chevron via ::before (zwei Linien mit border, 45deg gedreht) */
+/* Chevron via Border – komplette Border setzen, obere & linke Seite ausblenden */
 .ml-faq-icon::before {
+    /* Custom Properties für Chevron */
+    --faq-chevron-size: 0.6rem;
+    --faq-chevron-border: 2px solid var(--border-color);
+    border: var(--faq-chevron-border);
+    border-left: 0;
+    border-top: 0;
     content: '';
     display: block;
-    width: 0.6rem;
-    height: 0.6rem;
-    border-right: 2px solid var(--border-color);
-    border-bottom: 2px solid var(--border-color);
-    transform: rotate(45deg) translateY(-1px); /* Start: Pfeil nach unten */
+    height: var(--faq-chevron-size);
+    transform: rotate(45deg) translateY(-1px); /* Pfeil nach unten */
     transition: transform 180ms var(--ease-out, ease), border-color 180ms var(--ease-out, ease);
+    width: var(--faq-chevron-size);
 }
 
-/* offener Zustand – Pfeil nach oben (Chevron rotiert) */
+/* offener Zustand – Farbe & Rotation ändern */
 .ml-faq[open] .ml-faq-icon::before {
-    transform: rotate(225deg) translateY(1px); /* 45deg + 180deg */
-    border-right-color: var(--color-accent);
-    border-bottom-color: var(--color-accent);
+    --faq-chevron-border: 2px solid var(--color-accent);
+    transform: rotate(225deg) translateY(1px);
 }
 
 /* Fokus auf der Summary: konsistenter Focus-Ring */
