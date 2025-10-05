@@ -40,21 +40,33 @@
     font-weight: 600;
 }
 
-/* Icon (Chevron) – nur rechte & untere Kante zeichnen */
+/* Icon Container */
 .ml-faq-icon {
-    border-right-color: var(--border-color);
-    border-right-style: solid;
-    border-right-width: 2px;
-    display: inline-block;
-    height: 1.25rem;
-    transform: rotate(45deg);
+    position: relative;
     width: 1.25rem;
+    height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* offener Zustand – Akzentfarbe fürs Icon */
-.ml-faq[open] .ml-faq-icon {
-    border-bottom-color: var(--color-accent);
+/* Chevron via ::before (zwei Linien mit border, 45deg gedreht) */
+.ml-faq-icon::before {
+    content: '';
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    transform: rotate(45deg) translateY(-1px); /* Start: Pfeil nach unten */
+    transition: transform 180ms var(--ease-out, ease), border-color 180ms var(--ease-out, ease);
+}
+
+/* offener Zustand – Pfeil nach oben (Chevron rotiert) */
+.ml-faq[open] .ml-faq-icon::before {
+    transform: rotate(225deg) translateY(1px); /* 45deg + 180deg */
     border-right-color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
 }
 
 /* Fokus auf der Summary: konsistenter Focus-Ring */

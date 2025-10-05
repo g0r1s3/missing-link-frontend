@@ -13,15 +13,16 @@ export type LPFAQuestionProps = {
 }
 
 export default function LpfaQuestion({
-                                       question,
-                                       answer,
-                                       defaultOpen,
-                                       open,
-                                       onToggle,
-                                       id,
-                                       className,
-                                     }: LPFAQuestionProps) {
+  question,
+  answer,
+  defaultOpen,
+  open,
+  onToggle,
+  id,
+  className,
+}: LPFAQuestionProps) {
   const detailsRef = useRef<HTMLDetailsElement | null>(null)
+  const answerId = id ? `${id}-panel` : undefined
 
   // Keep the native <details> state in sync when used as a controlled component
   useEffect(() => {
@@ -41,6 +42,8 @@ export default function LpfaQuestion({
 
   const cls = ['ml-faq', className].filter(Boolean).join(' ')
 
+  const isOpen = detailsRef.current?.open || open || defaultOpen || false
+
   return (
     <details
       ref={detailsRef}
@@ -49,12 +52,12 @@ export default function LpfaQuestion({
       {...(defaultOpen ? { open: true } : null)}
       {...(id ? { id } : null)}
     >
-      <summary className="ml-faq-summary">
+      <summary className="ml-faq-summary" aria-expanded={isOpen} {...(answerId ? { 'aria-controls': answerId } : {})}>
         <span className="ml-faq-q">{question}</span>
         <span className="ml-faq-icon" aria-hidden="true" />
       </summary>
 
-      <div className="ml-faq-panel">
+      <div className="ml-faq-panel" {...(answerId ? { id: answerId } : {})}>
         <div className="ml-faq-a">{answer}</div>
       </div>
     </details>
