@@ -52,23 +52,27 @@
 
 /* Chevron via Border – komplette Border setzen, obere & linke Seite ausblenden */
 .ml-faq-icon::before {
-    /* Custom Properties für Chevron */
+    /* Chevron Variablen */
     --faq-chevron-size: 0.6rem;
-    --faq-chevron-border: 2px solid var(--border-color);
-    border: var(--faq-chevron-border);
-    border-left: 0;
-    border-top: 0;
+    --faq-chevron-width: 2px;
+    border-bottom-color: var(--border-color);
+    border-bottom-style: solid;
+    border-bottom-width: var(--faq-chevron-width);
+    border-right-color: var(--border-color);
+    border-right-style: solid;
+    border-right-width: var(--faq-chevron-width);
     content: '';
     display: block;
     height: var(--faq-chevron-size);
-    transform: rotate(45deg) translateY(-1px); /* Pfeil nach unten */
-    transition: transform 180ms var(--ease-out, ease), border-color 180ms var(--ease-out, ease);
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 180ms var(--ease-out, ease), border-bottom-color 180ms var(--ease-out, ease), border-right-color 180ms var(--ease-out, ease);
     width: var(--faq-chevron-size);
 }
 
 /* offener Zustand – Farbe & Rotation ändern */
 .ml-faq[open] .ml-faq-icon::before {
-    --faq-chevron-border: 2px solid var(--color-accent);
+    border-bottom-color: var(--color-accent);
+    border-right-color: var(--color-accent);
     transform: rotate(225deg) translateY(1px);
 }
 
