@@ -10,6 +10,7 @@
     box-shadow: var(--shadow-2);
     color: var(--on-surface);
     display: grid;
+    margin-bottom: var(--space-8);
     place-items: center;
     width: 100%;
 }
